@@ -5,67 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Ckmillian – Literacy</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --bg: #f9f6f1;
-      --text: #111;
-      --accent: #d6b260;
-      --accent-soft: #bfa15b;
-      --card: #fff;
-      --shadow: rgba(0,0,0,0.05);
-    }
-    [data-theme="dark"] {
-      --bg: #111;
-      --text: #eee;
-      --accent: #bfa15b;
-      --accent-soft: #d6b260;
-      --card: #1f1f1f;
-      --shadow: rgba(0,0,0,0.3);
-    }
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;}
-    header{background:var(--card);box-shadow:0 1px 4px var(--shadow);display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;position:relative;}
-    .logo{font-family:'Playfair Display',serif;font-size:1.75rem;color:var(--accent);}
-    .menu-toggle{display:none;flex-direction:column;cursor:pointer;gap:5px;}
-    .menu-toggle span{width:25px;height:3px;background:var(--text);border-radius:2px;transition:all 0.3s;}
-    nav{display:flex;align-items:center;gap:1.5rem;}
-    nav a{text-decoration:none;color:var(--text);font-weight:600;transition:color .2s,border-bottom .2s;}
-    nav a:hover{color:var(--accent);}
-    nav a.active{color:var(--accent);border-bottom:2px solid var(--accent);}
-    .nav-links{display:flex;}
-    @media(max-width:768px){.nav-links{display:none;position:absolute;top:60px;right:0;background:var(--card);flex-direction:column;width:200px;box-shadow:0 2px 6px var(--shadow);} .nav-links a{padding:1rem;border-bottom:1px solid #eee;} .menu-toggle{display:flex;}}
-    .controls{display:flex;align-items:center;gap:1rem;}
-    select{padding:.4rem;border:1px solid #d1d5db;border-radius:4px;background:var(--card);color:var(--text);}
-    .switch{position:relative;width:40px;height:20px;}
-    .switch input{display:none;}
-    .slider{position:absolute;inset:0;background:#d1d5db;border-radius:9999px;cursor:pointer;transition:background .3s;}
-    .slider:before{content:'';position:absolute;width:16px;height:16px;top:2px;left:2px;background:#fff;border-radius:50%;transition:transform .3s;}
-    input:checked+.slider{background:var(--accent-soft);}
-    input:checked+.slider:before{transform:translateX(20px);}
-    .hero{background:var(--card);text-align:center;padding:6rem 1rem;}
-    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);color:var(--accent);margin-bottom:1rem;}
-    .hero p{font-size:clamp(1rem,2.5vw,1.125rem);color:var(--text);}
-    .about,.steps,.grid,.auth{max-width:1024px;margin:auto;padding:2rem 1rem;}
-    .about h2{font-family:'Playfair Display',serif;font-size:2rem;color:var(--accent);margin-bottom:1rem;text-align:center;}
-    .about p{text-align:center;}
-    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;}
-    .step{background:var(--card);box-shadow:0 2px 6px var(--shadow);border-radius:8px;padding:1.5rem;transition:transform .2s;}
-    .step:hover{transform:translateY(-4px);}
-    .step h3{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--accent);margin-bottom:.75rem;}
-    .step p{font-style:italic;color:var(--accent-soft);}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;text-align:center;}
-    section{background:var(--card);box-shadow:0 2px 6px var(--shadow);border-radius:8px;padding:1.75rem;transition:transform .2s;}
-    section:hover{transform:translateY(-4px);}
-    section h2{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--accent);margin-bottom:.5rem;}
-    section p{margin-bottom:1rem;}
-    .btn{display:inline-block;padding:.6rem 1.2rem;background:var(--accent);color:#fff;border-radius:6px;text-decoration:none;font-weight:600;transition:background .3s;}
-    .btn:hover{background:var(--accent-soft);}
-    .auth{text-align:center;}
-    .auth input{margin:.4rem;padding:.6rem;width:100%;max-width:260px;border:1px solid #d1d5db;border-radius:6px;}
-    .auth button{margin:.5rem;padding:.6rem 1.2rem;background:var(--accent);color:#fff;border:none;border-radius:6px;cursor:pointer;transition:background .3s;}
-    .auth button:hover{background:var(--accent-soft);}
-    footer{text-align:center;padding:2rem 1rem;background:var(--card);box-shadow:0 -1px 4px var(--shadow);}
-  </style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
@@ -136,18 +76,6 @@
     <p>&copy; 2025 Ckmillian</p>
     <p>Designed by Mudde Carl Maximillian Kintu</p>
   </footer>
-
-  <script>
-    const themeSwitch = document.getElementById('themeSwitch'),
-          root = document.documentElement,
-          savedTheme = localStorage.getItem('theme');
-    if(savedTheme){ root.setAttribute('data-theme', savedTheme); themeSwitch.checked = savedTheme==='dark'; }
-    themeSwitch.addEventListener('change',()=>{ const mode = themeSwitch.checked?'dark':'light'; root.setAttribute('data-theme',mode); localStorage.setItem('theme',mode); });
-    document.querySelectorAll('nav a').forEach(link=>{if(link.href===window.location.href)link.classList.add('active');});
-    const menuToggle = document.getElementById('menuToggle'), navLinks=document.querySelector('.nav-links');
-    menuToggle.addEventListener('click',()=>{navLinks.classList.toggle('show');});
-    function signupUser(){alert('Sign-up not implemented');}
-    function loginUser(){alert('Login not implemented');}
-  </script>
+<script src="script.js"></script>
 </body>
 </html>
