@@ -137,17 +137,7 @@
     <p>Designed by Mudde Carl Maximillian Kintu</p>
   </footer>
 
-  <script>
-    const themeSwitch = document.getElementById('themeSwitch'),
-          root = document.documentElement,
-          savedTheme = localStorage.getItem('theme');
-    if(savedTheme){ root.setAttribute('data-theme', savedTheme); themeSwitch.checked = savedTheme==='dark'; }
-    themeSwitch.addEventListener('change',()=>{ const mode = themeSwitch.checked?'dark':'light'; root.setAttribute('data-theme',mode); localStorage.setItem('theme',mode); });
-    document.querySelectorAll('nav a').forEach(link=>{if(link.href===window.location.href)link.classList.add('active');});
-    const menuToggle = document.getElementById('menuToggle'), navLinks=document.querySelector('.nav-links');
-    menuToggle.addEventListener('click',()=>{navLinks.classList.toggle('show');});
-    function signupUser(){alert('Sign-up not implemented');}
-    function loginUser(){alert('Login not implemented');}
-  </script>
+<script src="script.js"></script>
+
 </body>
 </html>
