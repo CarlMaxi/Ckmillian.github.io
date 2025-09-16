@@ -3,152 +3,166 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ckmillian – Home</title>
+  <title>Ckmillian – Digital Wisdom</title>
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    /* Tailwind config overrides */
-    body { font-family: 'Inter', sans-serif; transition: background 0.3s, color 0.3s; }
-    h1, h2, h3 { font-family: 'Playfair Display', serif; }
-
-    /* Hero animation */
-    @keyframes fadeInUp {
-      0% {opacity:0; transform: translateY(20px);}
-      100% {opacity:1; transform: translateY(0);}
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gold: '#d6b260',
+            'gold-soft': '#bfa15b',
+            bgdark: '#111',
+            bgcard: '#1f1f1f'
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            inter: ['Inter', 'sans-serif']
+          },
+        }
+      }
     }
-    .fadeInUp { animation: fadeInUp 1s ease-out forwards; }
-
-    /* Theme toggle */
-    body[data-theme="dark"] { background-color: #111; color: #eee; }
-    body[data-theme="dark"] a { color: #f5d76e; }
-    body[data-theme="dark"] .card { background-color: #1f1f1f; }
-  </style>
+  </script>
+  <!-- Animate.css for smooth animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
-<body class="bg-white text-gray-900">
+<body class="font-inter bg-white text-gray-900 transition-colors duration-500">
 
   <!-- Header -->
-  <header class="flex justify-between items-center p-6 bg-yellow-200 dark:bg-gray-900 shadow-md">
-    <div class="text-3xl font-bold text-yellow-800 dark:text-yellow-400">Ckmillian</div>
-    
-    <nav class="hidden md:flex space-x-6">
-      <a href="index.html" class="hover:text-yellow-600 transition" data-translate="home">Home</a>
-      <a href="literacy.html" class="hover:text-yellow-600 transition" data-translate="literacy">Literacy</a>
-      <a href="morality.html" class="hover:text-yellow-600 transition" data-translate="morality">Morality</a>
-      <a href="security.html" class="hover:text-yellow-600 transition" data-translate="security">Security</a>
-      <a href="resources.html" class="hover:text-yellow-600 transition" data-translate="resources">Resources</a>
-    </nav>
+  <header class="fixed top-0 w-full bg-white dark:bg-bgdark shadow-md z-30">
+    <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+      <div class="font-serif text-2xl font-bold text-gold">Ckmillian</div>
 
-    <div class="flex items-center space-x-4">
-      <select id="lang-toggle" class="p-2 rounded border border-gray-300 dark:bg-gray-800 dark:text-gray-200">
-        <option value="en">English</option>
-        <option value="fr">Français</option>
-        <option value="sw">Swahili</option>
-        <option value="lg">Luganda</option>
-        <option value="es">Español</option>
-        <option value="ja">日本語</option>
-        <option value="zh">中文</option>
-        <option value="ar">العربية</option>
-      </select>
-      <button id="theme-toggle" class="w-10 h-6 bg-gray-300 rounded-full relative dark:bg-yellow-400">
-        <span class="absolute w-4 h-4 bg-white rounded-full top-1 left-1 transition transform" id="theme-knob"></span>
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex gap-6">
+        <a href="index.html" class="hover:text-gold-soft">Home</a>
+        <a href="literacy.html" class="hover:text-gold-soft">Literacy</a>
+        <a href="morality.html" class="hover:text-gold-soft">Morality</a>
+        <a href="security.html" class="hover:text-gold-soft">Security</a>
+        <a href="resources.html" class="hover:text-gold-soft">Resources</a>
+      </nav>
+
+      <!-- Controls -->
+      <div class="flex gap-4 items-center">
+        <select id="lang-toggle" class="border border-gray-300 dark:border-gray-600 rounded px-2 py-1 bg-white dark:bg-bgdark text-gray-900 dark:text-gray-200">
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="sw">Swahili</option>
+          <option value="lg">Luganda</option>
+          <option value="es">Español</option>
+          <option value="ja">日本語</option>
+          <option value="zh">中文</option>
+          <option value="ar">العربية</option>
+        </select>
+
+        <button id="theme-toggle" class="w-10 h-6 bg-gray-300 rounded-full relative focus:outline-none">
+          <span id="theme-knob" class="absolute w-4 h-4 bg-white rounded-full top-1 left-1 transition-transform"></span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-toggle" class="md:hidden flex flex-col gap-1 w-6 h-6">
+        <span class="block h-0.5 w-full bg-gray-900 dark:bg-gray-200"></span>
+        <span class="block h-0.5 w-full bg-gray-900 dark:bg-gray-200"></span>
+        <span class="block h-0.5 w-full bg-gray-900 dark:bg-gray-200"></span>
       </button>
     </div>
+
+    <!-- Mobile Nav -->
+    <nav id="mobile-nav" class="hidden flex-col gap-4 p-4 bg-white dark:bg-bgdark md:hidden">
+      <a href="index.html" class="hover:text-gold-soft">Home</a>
+      <a href="literacy.html" class="hover:text-gold-soft">Literacy</a>
+      <a href="morality.html" class="hover:text-gold-soft">Morality</a>
+      <a href="security.html" class="hover:text-gold-soft">Security</a>
+      <a href="resources.html" class="hover:text-gold-soft">Resources</a>
+    </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="text-center py-32 bg-gradient-to-r from-yellow-200 via-yellow-100 to-white dark:from-gray-800 dark:via-gray-900 dark:to-gray-900">
-    <h1 class="text-6xl font-bold fadeInUp text-yellow-800 dark:text-yellow-400 mb-4">Ckmillian</h1>
-    <p class="text-xl max-w-xl mx-auto text-gray-800 dark:text-gray-200">“Holistic wisdom shapes modern resilience.” – Inspired by Sun Tzu</p>
-  </section>
-
-  <!-- Mission -->
-  <section class="py-16 max-w-5xl mx-auto text-center px-4">
-    <h2 class="text-4xl font-bold text-yellow-700 dark:text-yellow-400 mb-4" data-translate="mission">Our Mission</h2>
-    <p class="text-gray-700 dark:text-gray-200" data-translate="missionDesc">
-      We empower individuals to engage confidently and responsibly in the digital sphere by providing clear, research-backed guidance on literacy, ethical conduct, and robust security practices.
+  <!-- Hero Section -->
+  <section class="pt-28 text-center px-4">
+    <h1 class="font-serif text-5xl md:text-6xl font-bold text-gold animate__animated animate__fadeInDown">Ckmillian</h1>
+    <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-700 dark:text-gray-300 animate__animated animate__fadeIn animate__delay-1s">
+      Empowering digital literacy, ethical reflection, and proactive security practices in the modern age.
     </p>
+    <a href="resources.html" class="inline-block mt-8 px-6 py-3 bg-gold text-white rounded-lg font-semibold hover:bg-gold-soft transition">Explore Resources</a>
   </section>
 
-  <!-- Steps -->
-  <section class="py-16 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
-    <div class="card p-8 rounded shadow hover:shadow-lg transition bg-white dark:bg-gray-800">
-      <h3 class="text-2xl font-bold text-yellow-700 dark:text-yellow-400 mb-2" data-translate="learn">Learn Precisely</h3>
-      <p class="italic text-yellow-600 dark:text-yellow-300">“Real knowledge is to know the extent of one’s ignorance.” – Confucius</p>
+  <!-- Features / Cards -->
+  <section class="max-w-6xl mx-auto p-8 grid md:grid-cols-3 gap-6 mt-12">
+    <div class="p-6 bg-white dark:bg-bgcard rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+      <h3 class="font-serif text-xl text-gold mb-2">Learn Precisely</h3>
+      <p class="italic text-gold-soft">“Real knowledge is to know the extent of one’s ignorance.” – Confucius</p>
     </div>
-    <div class="card p-8 rounded shadow hover:shadow-lg transition bg-white dark:bg-gray-800">
-      <h3 class="text-2xl font-bold text-yellow-700 dark:text-yellow-400 mb-2" data-translate="reflect">Reflect Ethically</h3>
-      <p class="italic text-yellow-600 dark:text-yellow-300">“The superior man is modest in his speech but exceeds in his actions.” – Confucius</p>
+    <div class="p-6 bg-white dark:bg-bgcard rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+      <h3 class="font-serif text-xl text-gold mb-2">Reflect Ethically</h3>
+      <p class="italic text-gold-soft">“The superior man is modest in his speech but exceeds in his actions.” – Confucius</p>
     </div>
-    <div class="card p-8 rounded shadow hover:shadow-lg transition bg-white dark:bg-gray-800">
-      <h3 class="text-2xl font-bold text-yellow-700 dark:text-yellow-400 mb-2" data-translate="secure">Secure Proactively</h3>
-      <p class="italic text-yellow-600 dark:text-yellow-300">“Victorious warriors win first and then go to war.” – Sun Tzu</p>
-    </div>
-  </section>
-
-  <!-- Preview -->
-  <section class="py-16 max-w-5xl mx-auto text-center px-4">
-    <h2 class="text-4xl font-bold text-yellow-700 dark:text-yellow-400 mb-4" data-translate="preview">Preview Our Sections</h2>
-    <p class="text-gray-700 dark:text-gray-200 mb-6" data-translate="previewDesc">Explore more in-depth guidance on each topic by visiting the dedicated pages.</p>
-    <div class="flex flex-wrap justify-center gap-4">
-      <a href="literacy.html" class="btn bg-yellow-700 hover:bg-yellow-600 text-white px-6 py-3 rounded transition" data-translate="literacy">Explore Literacy</a>
-      <a href="morality.html" class="btn bg-yellow-700 hover:bg-yellow-600 text-white px-6 py-3 rounded transition" data-translate="morality">Explore Morality</a>
-      <a href="security.html" class="btn bg-yellow-700 hover:bg-yellow-600 text-white px-6 py-3 rounded transition" data-translate="security">Explore Security</a>
-      <a href="resources.html" class="btn bg-yellow-700 hover:bg-yellow-600 text-white px-6 py-3 rounded transition" data-translate="resources">Explore Resources</a>
+    <div class="p-6 bg-white dark:bg-bgcard rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+      <h3 class="font-serif text-xl text-gold mb-2">Secure Proactively</h3>
+      <p class="italic text-gold-soft">“Victorious warriors win first and then go to war.” – Sun Tzu</p>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-8 text-center bg-yellow-200 dark:bg-gray-900 dark:text-gray-200">
-    <p>&copy; 2025 Ckmillian</p>
-    <p>Designed by Mudde Carl Maximillian Kintu</p>
+  <footer class="bg-gray-100 dark:bg-bgdark text-gray-800 dark:text-gray-200 p-8 mt-12 text-center">
+    <p>&copy; 2025 Ckmillian – Designed by Max</p>
+    <p>Empowering responsible digital engagement</p>
   </footer>
 
+  <!-- Scripts -->
   <script>
-    // ===== Theme Toggle =====
-    const themeToggle = document.querySelector("#theme-toggle");
-    const themeKnob = document.querySelector("#theme-knob");
-    const savedTheme = localStorage.getItem("theme") || "light";
-    document.body.setAttribute("data-theme", savedTheme);
-    if(savedTheme === "dark") themeKnob.classList.add("translate-x-4");
+    // Dark/Light Toggle
+    const themeBtn = document.getElementById('theme-toggle');
+    const themeKnob = document.getElementById('theme-knob');
+    const htmlEl = document.documentElement;
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    htmlEl.setAttribute('data-theme', savedTheme);
+    if(savedTheme==='dark') themeKnob.classList.add('translate-x-4');
 
-    themeToggle.addEventListener("click", () => {
-      const current = document.body.getAttribute("data-theme");
-      const newTheme = current === "light" ? "dark" : "light";
-      document.body.setAttribute("data-theme", newTheme);
-      localStorage.setItem("theme", newTheme);
-      themeKnob.classList.toggle("translate-x-4");
+    themeBtn.addEventListener('click', () => {
+      const current = htmlEl.getAttribute('data-theme');
+      const next = current==='light'?'dark':'light';
+      htmlEl.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      themeKnob.classList.toggle('translate-x-4');
     });
 
-    // ===== Language Toggle =====
+    // Mobile Nav Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    menuToggle.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+
+    // Language Toggle
     const translations = {
-      en: { home:"Home", literacy:"Literacy", morality:"Morality", security:"Security", resources:"Resources", mission:"Our Mission", missionDesc:"We empower individuals to engage confidently and responsibly in the digital sphere by providing clear, research-backed guidance on literacy, ethical conduct, and robust security practices.", learn:"Learn Precisely", reflect:"Reflect Ethically", secure:"Secure Proactively", preview:"Preview Our Sections", previewDesc:"Explore more in-depth guidance on each topic by visiting the dedicated pages."},
-      fr: { home:"Accueil", literacy:"Alphabétisation", morality:"Moralité", security:"Sécurité", resources:"Ressources", mission:"Notre Mission", missionDesc:"Nous permettons aux individus de s'engager avec confiance et responsabilité dans le monde numérique...", learn:"Apprendre avec précision", reflect:"Réfléchir éthiquement", secure:"Sécuriser proactivement", preview:"Aperçu de nos sections", previewDesc:"Explorez plus en détail chaque sujet en visitant les pages dédiées."},
-      es: { home:"Bienvenido", literacy:"Alfabetización", morality:"Moralidad", security:"Seguridad", resources:"Recursos", mission:"Nuestra Misión", missionDesc:"Empoderamos a los individuos para participar con confianza y responsabilidad...", learn:"Aprender con precisión", reflect:"Reflexionar éticamente", secure:"Asegurar proactivamente", preview:"Vista previa de nuestras secciones", previewDesc:"Explore más a fondo cada tema visitando las páginas dedicadas."},
-      sw: { home:"Karibu", literacy:"Elimu", morality:"Maadili", security:"Usalama", resources:"Rasilimali", mission:"Dhamira Yetu", missionDesc:"Tunahimiza watu kushiriki kwa kujiamini...", learn:"Jifunze kwa usahihi", reflect:"Fikiria kimaadili", secure:"Hakikisha kwa uangalifu", preview:"Orodha ya Sehemu", previewDesc:"Angalia kwa undani kila mada kwenye kurasa."},
-      lg: { home:"Tukwanirizza", literacy:"Obusomi", morality:"Obutuufu", security:"Obukuumi", resources:"Ebikozesebwa", mission:"Ddumira Yaffe", missionDesc:"Tukozesa abantu okuyamba ku digital...", learn:"Jjangu eby'okuyiga", reflect:"Lowooza ku nkozesa", secure:"Leka okutereeza", preview:"Mweggyo ku biseera", previewDesc:"Laba buli kimu."},
-      ja: { home:"ホーム", literacy:"リテラシー", morality:"道徳", security:"セキュリティ", resources:"リソース", mission:"私たちの使命", missionDesc:"デジタル領域で自信を持って活動できるよう支援します...", learn:"正確に学ぶ", reflect:"倫理的に考える", secure:"積極的に安全を確保する", preview:"セクションのプレビュー", previewDesc:"各トピックの詳細を専用ページで探索できます。"},
-      zh: { home:"欢迎", literacy:"素养", morality:"道德", security:"安全", resources:"资源", mission:"我们的使命", missionDesc:"我们帮助个人在数字领域自信而负责任地参与...", learn:"精确学习", reflect:"伦理反思", secure:"主动保护", preview:"部分预览", previewDesc:"通过访问专用页面深入探索每个主题。"},
-      ar: { home:"الرئيسية", literacy:"المحو الأمية", morality:"الأخلاق", security:"الأمن", resources:"الموارد", mission:"مهمتنا", missionDesc:"نمكن الأفراد من المشاركة بثقة ومسؤولية...", learn:"تعلم بدقة", reflect:"تفكر أخلاقياً", secure:"حماية استباقية", preview:"معاينة الأقسام", previewDesc:"استكشف كل موضوع بمزيد من التفصيل عبر الصفحات المخصصة."}
+      en:{title:"Welcome to Ckmillian", philosophy:"Philosophy", security:"Security", literacy:"Literacy", morality:"Morality", resources:"Resources"},
+      fr:{title:"Bienvenue à Ckmillian", philosophy:"Philosophie", security:"Sécurité", literacy:"Alphabétisation", morality:"Moralité", resources:"Ressources"},
+      sw:{title:"Karibu Ckmillian", philosophy:"Falsafa", security:"Usalama", literacy:"Elimu", morality:"Maadili", resources:"Rasilimali"},
+      lg:{title:"Tukwanirizza ku Ckmillian", philosophy:"Efilosofi", security:"Obukuumi", literacy:"Obusomi", morality:"Obutuufu", resources:"Ebikozesebwa"},
+      es:{title:"Bienvenido a Ckmillian", philosophy:"Filosofía", security:"Seguridad", literacy:"Alfabetización", morality:"Moralidad", resources:"Recursos"},
+      ja:{title:"Ckmillianへようこそ", philosophy:"哲学", security:"セキュリティ", literacy:"リテラシー", morality:"道徳", resources:"リソース"},
+      zh:{title:"欢迎来到Ckmillian", philosophy:"哲学", security:"安全", literacy:"素养", morality:"道德", resources:"资源"},
+      ar:{title:"مرحبًا بك في Ckmillian", philosophy:"الفلسفة", security:"الأمن", literacy:"المحو الأمية", morality:"الأخلاق", resources:"الموارد"}
     };
 
-    const langToggle = document.querySelector("#lang-toggle");
-    const savedLang = localStorage.getItem("lang") || "en";
-    langToggle.value = savedLang;
-    applyTranslations(savedLang);
+    const langSelect = document.getElementById('lang-toggle');
+    const savedLang = localStorage.getItem('lang') || 'en';
+    langSelect.value = savedLang;
 
-    langToggle.addEventListener("change", (e) => {
+    langSelect.addEventListener('change', e => {
       const lang = e.target.value;
-      localStorage.setItem("lang", lang);
+      localStorage.setItem('lang', lang);
       applyTranslations(lang);
     });
 
-    function applyTranslations(lang) {
-      document.querySelectorAll("[data-translate]").forEach(el => {
-        const key = el.getAttribute("data-translate");
+    function applyTranslations(lang){
+      document.querySelectorAll('[data-translate]').forEach(el=>{
+        const key = el.getAttribute('data-translate');
         if(translations[lang][key]) el.textContent = translations[lang][key];
       });
     }
+    applyTranslations(savedLang);
   </script>
-
 </body>
 </html>
