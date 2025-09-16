@@ -3,134 +3,95 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Ckmillian – Resources</title>
+  <title data-translate="security">Security</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
-
   <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
   <header>
     <div class="logo">Ckmillian</div>
-
-    <div class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
-      <span></span><span></span><span></span>
-    </div>
-
-    <nav class="nav-links" aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="literacy.html">Literacy</a>
-      <a href="morality.html">Morality</a>
-      <a href="security.html">Security</a>
-      <a href="resources.html" class="active">Resources</a>
+    <nav>
+      <ul>
+        <li><a href="index.html" data-translate="title">Home</a></li>
+        <li><a href="literacy.html" data-translate="literacy">Literacy</a></li>
+        <li><a href="morality.html" data-translate="morality">Morality</a></li>
+        <li><a href="security.html" class="active" data-translate="security">Security</a></li>
+        <li><a href="resources.html" data-translate="resources">Resources</a></li>
+      </ul>
+      <div class="menu-toggle">&#9776;</div>
     </nav>
-
     <div class="controls">
-      <select id="langSelect" aria-label="Language selector">
+      <select id="lang-toggle" aria-label="Language">
         <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="sw">Swahili</option>
+        <option value="lg">Luganda</option>
         <option value="es">Español</option>
+        <option value="ja">日本語</option>
+        <option value="zh">中文</option>
       </select>
-
-      <label class="switch" aria-label="Toggle light/dark theme">
-        <input type="checkbox" id="themeSwitch"/>
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle"/>
         <span class="slider"></span>
       </label>
     </div>
   </header>
 
   <div class="hero">
-    <h1 id="hero_h1">Resources</h1>
-    <p id="hero_p">Paths, platforms, and channels to learn AI, ethical hacking, and security — responsibly.</p>
+    <h1 data-translate="security">Security</h1>
+    <p>“Shields unseen protect what’s yours, guard every digital door.”</p>
   </div>
 
   <div class="about">
-    <h2 id="about_h2">Where to Learn More</h2>
-    <p id="about_p">We collected reputable, beginner-friendly places to study AI, practice ethical hacking legally, and level up your digital security skills.</p>
+    <h2 data-translate="security">Our Security Philosophy</h2>
+    <p data-translate="security">
+      At Ckmillian, we emphasize proactive protection, digital hygiene, and informed vigilance. Your online safety is a mindset as much as it is a practice.
+    </p>
   </div>
 
   <div class="steps">
     <div class="step">
-      <h3 id="step1_h3">AI & Machine Learning</h3>
-      <p id="step1_p">Start with fundamentals: math, ML basics, and then model thinking. Prefer courses with practical labs.</p>
+      <h3>Guard Your Data</h3>
+      <p>“Shields unseen protect what’s yours.”</p>
     </div>
     <div class="step">
-      <h3 id="step2_h3">Ethical Hacking (Legal)</h3>
-      <p id="step2_p">Practice only in legal, contained environments (CTFs, sandboxes). Learn disclosure and ethics first.</p>
+      <h3>Think Ahead</h3>
+      <p>“Think ahead, foresee every breach.”</p>
     </div>
     <div class="step">
-      <h3 id="step3_h3">Security & Privacy</h3>
-      <p id="step3_p">Build habits: password hygiene, secure defaults, and understanding common attack patterns.</p>
+      <h3>Practice Wisely</h3>
+      <p>“Wisdom keeps danger out of reach.”</p>
+    </div>
+    <div class="step">
+      <h3>Secure Tools</h3>
+      <p>“Use the right tools for the right protection.”</p>
     </div>
   </div>
 
   <section class="grid">
-    <h2 id="section_h2">Recommended Resources</h2>
-    <p id="section_p">A curated list — mix of courses, playgrounds, docs, and channels. All resources are well-known and focused on ethical, legal learning.</p>
-
-    <div style="display:grid;gap:1rem;margin-top:1rem;">
-      <div class="resource-item">
-        <strong>AI & ML — Courses & Docs</strong>
-        <ul class="resource-list">
-          <li>Andrew Ng’s Machine Learning / Deep Learning courses (Coursera) — fundamentals with practical exercises.</li>
-          <li>fast.ai — practical deep learning with hands-on notebooks for real model work.</li>
-          <li>OpenAI / TensorFlow / PyTorch docs — official guides for model APIs and tooling.</li>
-          <li>MIT OpenCourseWare — classic CS & ML classes (math + theory).</li>
-        </ul>
-      </div>
-
-      <div class="resource-item">
-        <strong>Ethical Hacking — Legal Practice</strong>
-        <ul class="resource-list">
-          <li>TryHackMe & Hack The Box — gamified, legal environments to learn system security and CTF skills.</li>
-          <li>OWASP resources — must-read for web security fundamentals and secure coding patterns.</li>
-          <li>CTFtime — calendar of capture-the-flag events and challenges to join with legal permission.</li>
-          <li>The Cyber Mentor / LiveOverflow (YouTube) — beginner-friendly ethical hacking walkthroughs and concepts.</li>
-        </ul>
-      </div>
-
-      <div class="resource-item">
-        <strong>Security & Privacy — Blogs & Tools</strong>
-        <ul class="resource-list">
-          <li>Krebs on Security — deep investigative security reporting and cases.</li>
-          <li>Troy Hunt (Have I Been Pwned) — practical resources on breaches and safety.</li>
-          <li>Mozilla MDN Web Docs — secure web development practices and APIs.</li>
-          <li>Let’s Encrypt & OAuth docs — secure deployment and authentication best practices.</li>
-        </ul>
-      </div>
-
-      <div class="resource-item">
-        <strong>Channels & Communities</strong>
-        <ul class="resource-list">
-          <li>Computerphile — explainers on CS and security topics for curious minds.</li>
-          <li>Two Minute Papers & 3Blue1Brown — visual intuition for AI and math.</li>
-          <li>r/learnprogramming, r/AskNetsec (use responsibly) — community help and curated learning threads.</li>
-          <li>Local meetups & university clubs — sometimes the best practical mentorship is in-person and legal.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div style="margin-top:1.25rem;">
-      <a href="literacy.html" class="btn" id="btn_back">Back to Literacy</a>
-      <a href="security.html" class="btn" id="btn_security">Go to Security</a>
-    </div>
+    <h2>Learn More</h2>
+    <p>Explore guides, tools, and practices to strengthen your digital security skills.</p>
+    <a href="resources.html" class="btn" data-translate="resources">Resources</a>
+    <a href="#" class="btn">Cybersecurity Tips</a>
+    <a href="#" class="btn">AI Security Practices</a>
+    <a href="#" class="btn">Ethical Hacking Basics</a>
   </section>
 
-  <div class="auth" aria-label="Member access">
-    <h3 id="auth_h3">Member Access</h3>
-    <input id="emailInput" type="email" placeholder="Email Address"/>
-    <input id="passInput" type="password" placeholder="Password"/>
+  <div class="auth">
+    <h3>Member Access</h3>
+    <input type="email" placeholder="Email Address"/>
+    <input type="password" placeholder="Password"/>
     <div>
-      <button onclick="loginUser()" id="loginBtn">Login</button>
-      <button onclick="signupUser()" id="signupBtn">Sign Up</button>
+      <button onclick="loginUser()">Login</button>
+      <button onclick="signupUser()">Sign Up</button>
     </div>
   </div>
 
   <footer>
-    <p id="footer_copy">&copy; 2025 Ckmillian</p>
-    <p id="footer_credit">Designed by Mudde Carl Maximillian Kintu</p>
+    <p>&copy; 2025 Ckmillian</p>
+    <p>Designed by Mudde Carl Maximillian Kintu</p>
   </footer>
 
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
