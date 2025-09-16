@@ -29,7 +29,7 @@ body[data-theme="dark"] {
   color: var(--text-dark);
 }
 
-/* ===== Header / Nav ===== */
+/* ===== Header ===== */
 header {
   display: flex;
   justify-content: space-between;
@@ -42,7 +42,14 @@ header {
   z-index: 1000;
 }
 
-/* Nav links (all <a> inside nav) */
+/* Logo */
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  color: var(--text-light);
+}
+
+/* Nav links */
 nav a {
   text-decoration: none;
   font-weight: bold;
@@ -59,7 +66,7 @@ nav a.active {
   border-bottom: 2px solid var(--accent-soft);
 }
 
-/* Mobile Menu Toggle */
+/* Mobile menu toggle */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -98,7 +105,7 @@ nav a.active {
   }
 }
 
-/* ===== Hero Section ===== */
+/* ===== Hero ===== */
 .hero {
   text-align: center;
   padding: 6rem 1rem;
@@ -118,7 +125,7 @@ nav a.active {
   color: inherit;
 }
 
-/* ===== About / Steps / Grid ===== */
+/* ===== About / Steps / Grid / Auth ===== */
 .about, .steps, .grid, .auth {
   max-width: 1024px;
   margin: auto;
@@ -155,6 +162,14 @@ nav a.active {
   color: var(--accent-soft);
 }
 
+/* ===== Grid links (for security.html etc.) ===== */
+.grid-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
 /* ===== Buttons ===== */
 .btn {
   display: inline-block;
@@ -165,7 +180,6 @@ nav a.active {
   text-decoration: none;
   font-weight: 600;
   transition: background 0.3s;
-  margin: 0.3rem 0;
 }
 
 .btn:hover {
@@ -216,17 +230,51 @@ body[data-theme="dark"] .step {
   box-shadow: 0 2px 6px var(--shadow-dark);
 }
 
+/* ===== Dark Mode Text (optional) ===== */
+body[data-theme="dark"] .logo,
+body[data-theme="dark"] nav a {
+  color: var(--text-dark);
+}
+
+/* ===== Switch toggle slider ===== */
+.switch {
+  position: relative;
+  width: 40px;
+  height: 20px;
+}
+.switch input {
+  display: none;
+}
+.slider {
+  position: absolute;
+  inset: 0;
+  background: #d1d5db;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.slider:before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 2px;
+  left: 2px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+input:checked + .slider {
+  background: var(--accent-soft);
+}
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
 /* ===== Responsive Typography ===== */
 @media (max-width: 480px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .steps {
-    gap: 1rem;
-  }
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+  .steps { gap: 1rem; }
+  .grid-links { flex-direction: column; }
 }
