@@ -22,7 +22,7 @@ if (menuToggle && navMenu) {
   });
 }
 
-// ===== Simple Translations =====
+// ===== Translations =====
 const translations = {
   en: {
     title: "Welcome to Ckmillian",
@@ -79,10 +79,18 @@ const translations = {
     literacy: "素养",
     morality: "道德",
     resources: "资源"
+  },
+    ar: {
+    title: "مرحبًا بك في Ckmillian",
+    philosophy: "الفلسفة",
+    security: "الأمن",
+    literacy: "المحو الأمية",
+    morality: "الأخلاق",
+    resources: "الموارد"
   }
 };
 
-
+// ===== Language Toggle =====
 const langToggle = document.querySelector("#lang-toggle");
 if (langToggle) {
   langToggle.addEventListener("change", (e) => {
@@ -91,6 +99,7 @@ if (langToggle) {
     localStorage.setItem("lang", lang);
   });
 
+  // Load saved language
   const savedLang = localStorage.getItem("lang") || "en";
   langToggle.value = savedLang;
   applyTranslations(savedLang);
