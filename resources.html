@@ -5,80 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Ckmillian – Resources</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --bg: #f9f6f1;
-      --text: #111;
-      --accent: #d6b260;
-      --accent-soft: #bfa15b;
-      --card: #fff;
-      --shadow: rgba(0,0,0,0.05);
-    }
-    [data-theme="dark"] {
-      --bg: #111;
-      --text: #eee;
-      --accent: #bfa15b;
-      --accent-soft: #d6b260;
-      --card: #1f1f1f;
-      --shadow: rgba(0,0,0,0.3);
-    }
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;}
-    header{background:var(--card);box-shadow:0 1px 4px var(--shadow);display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;position:relative;}
-    .logo{font-family:'Playfair Display',serif;font-size:1.75rem;color:var(--accent);}
-    .menu-toggle{display:none;flex-direction:column;cursor:pointer;gap:5px;}
-    .menu-toggle span{width:25px;height:3px;background:var(--text);border-radius:2px;transition:all 0.3s;}
-    nav{display:flex;align-items:center;gap:1.5rem;}
-    nav a{text-decoration:none;color:var(--text);font-weight:600;transition:color .2s,border-bottom .2s;}
-    nav a:hover{color:var(--accent);}
-    nav a.active{color:var(--accent);border-bottom:2px solid var(--accent);}
-    .nav-links{display:flex;}
-    @media(max-width:768px){
-      .nav-links{display:none;position:absolute;top:60px;right:0;background:var(--card);flex-direction:column;width:220px;box-shadow:0 2px 6px var(--shadow);}
-      .nav-links a{padding:1rem;border-bottom:1px solid #eee;}
-      .menu-toggle{display:flex;}
-    }
-    .controls{display:flex;align-items:center;gap:1rem;}
-    select{padding:.4rem;border:1px solid #d1d5db;border-radius:4px;background:var(--card);color:var(--text);}
-    .switch{position:relative;width:40px;height:20px;}
-    .switch input{display:none;}
-    .slider{position:absolute;inset:0;background:#d1d5db;border-radius:9999px;cursor:pointer;transition:background .3s;}
-    .slider:before{content:'';position:absolute;width:16px;height:16px;top:2px;left:2px;background:#fff;border-radius:50%;transition:transform .3s;}
-    input:checked+.slider{background:var(--accent-soft);}
-    input:checked+.slider:before{transform:translateX(20px);}
-    .hero{background:var(--card);text-align:center;padding:6rem 1rem;}
-    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);color:var(--accent);margin-bottom:1rem;}
-    .hero p{font-size:clamp(1rem,2.5vw,1.125rem);color:var(--text);}
-    .about,.steps,.grid,.auth{max-width:1024px;margin:auto;padding:2rem 1rem;}
-    .about h2{font-family:'Playfair Display',serif;font-size:2rem;color:var(--accent);margin-bottom:1rem;text-align:center;}
-    .about p{text-align:center;}
-    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;}
-    .step{background:var(--card);box-shadow:0 2px 6px var(--shadow);border-radius:8px;padding:1.5rem;transition:transform .2s;}
-    .step:hover{transform:translateY(-4px);}
-    .step h3{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--accent);margin-bottom:.75rem;}
-    .step p{font-style:italic;color:var(--accent-soft);}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;text-align:left;}
-    section{background:var(--card);box-shadow:0 2px 6px var(--shadow);border-radius:8px;padding:1.75rem;transition:transform .2s;}
-    section:hover{transform:translateY(-4px);}
-    section h2{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--accent);margin-bottom:.5rem;}
-    section p{margin-bottom:1rem;}
-    .btn{display:inline-block;padding:.6rem 1.2rem;background:var(--accent);color:#fff;border-radius:6px;text-decoration:none;font-weight:600;transition:background .3s;margin-right:.5rem;}
-    .btn:hover{background:var(--accent-soft);}
-    .resource-list{list-style:none;padding-left:0;display:grid;gap:.75rem;}
-    .resource-item{padding:.5rem;border-radius:6px;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.02));}
-    .resource-item strong{display:block;}
-    .auth{text-align:center;}
-    .auth input{margin:.4rem;padding:.6rem;width:100%;max-width:260px;border:1px solid #d1d5db;border-radius:6px;}
-    .auth button{margin:.5rem;padding:.6rem 1.2rem;background:var(--accent);color:#fff;border:none;border-radius:6px;cursor:pointer;transition:background .3s;}
-    .auth button:hover{background:var(--accent-soft);}
-    footer{text-align:center;padding:2rem 1rem;background:var(--card);box-shadow:0 -1px 4px var(--shadow);}
-    /* small tweaks for readability on tiny screens */
-    @media(max-width:420px){
-      header{padding:0.75rem 1rem;}
-      .hero{padding:4rem 0.75rem;}
-      .about,.steps,.grid,.auth{padding:1.25rem 0.75rem;}
-    }
-  </style>
+
+  <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
   <header>
@@ -155,3 +84,53 @@
           <li>TryHackMe & Hack The Box — gamified, legal environments to learn system security and CTF skills.</li>
           <li>OWASP resources — must-read for web security fundamentals and secure coding patterns.</li>
           <li>CTFtime — calendar of capture-the-flag events and challenges to join with legal permission.</li>
+          <li>The Cyber Mentor / LiveOverflow (YouTube) — beginner-friendly ethical hacking walkthroughs and concepts.</li>
+        </ul>
+      </div>
+
+      <div class="resource-item">
+        <strong>Security & Privacy — Blogs & Tools</strong>
+        <ul class="resource-list">
+          <li>Krebs on Security — deep investigative security reporting and cases.</li>
+          <li>Troy Hunt (Have I Been Pwned) — practical resources on breaches and safety.</li>
+          <li>Mozilla MDN Web Docs — secure web development practices and APIs.</li>
+          <li>Let’s Encrypt & OAuth docs — secure deployment and authentication best practices.</li>
+        </ul>
+      </div>
+
+      <div class="resource-item">
+        <strong>Channels & Communities</strong>
+        <ul class="resource-list">
+          <li>Computerphile — explainers on CS and security topics for curious minds.</li>
+          <li>Two Minute Papers & 3Blue1Brown — visual intuition for AI and math.</li>
+          <li>r/learnprogramming, r/AskNetsec (use responsibly) — community help and curated learning threads.</li>
+          <li>Local meetups & university clubs — sometimes the best practical mentorship is in-person and legal.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:1.25rem;">
+      <a href="literacy.html" class="btn" id="btn_back">Back to Literacy</a>
+      <a href="security.html" class="btn" id="btn_security">Go to Security</a>
+    </div>
+  </section>
+
+  <div class="auth" aria-label="Member access">
+    <h3 id="auth_h3">Member Access</h3>
+    <input id="emailInput" type="email" placeholder="Email Address"/>
+    <input id="passInput" type="password" placeholder="Password"/>
+    <div>
+      <button onclick="loginUser()" id="loginBtn">Login</button>
+      <button onclick="signupUser()" id="signupBtn">Sign Up</button>
+    </div>
+  </div>
+
+  <footer>
+    <p id="footer_copy">&copy; 2025 Ckmillian</p>
+    <p id="footer_credit">Designed by Mudde Carl Maximillian Kintu</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
