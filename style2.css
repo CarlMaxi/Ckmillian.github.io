@@ -1,0 +1,183 @@
+/* ===== Global Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ===== Theme Variables ===== */
+:root {
+  --accent: #d4af37; /* professional gold */
+  --bg: #ffffff;
+  --text: #111111;
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --card-bg: #f9f9f9;
+}
+
+[data-theme="dark"] {
+  --bg: #111111;
+  --text: #eeeeee;
+  --nav-bg: rgba(20, 20, 20, 0.95);
+  --card-bg: #1a1a1a;
+}
+
+/* ===== Navigation ===== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--nav-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+nav .logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: var(--accent);
+}
+
+nav .controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ===== Toggles ===== */
+button, select {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--text);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover, select:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f0f0f0, #ffffff);
+  transition: background 0.3s;
+}
+
+/* ===== Typing Effect for h1 ===== */
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid var(--accent);
+  width: 0;
+  animation: typing 4s steps(30, end) forwards,
+             blink 0.7s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--accent); }
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--text);
+}
+
+/* ===== Section ===== */
+section {
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+/* ===== Card ===== */
+.card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ===== Footer ===== */
+footer {
+  padding: 2rem;
+  text-align: center;
+  background: var(--nav-bg);
+  color: var(--text);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: var(--nav-bg);
+    position: absolute;
+    top: 60px;
+    right: 2rem;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  nav ul.show {
+    display: flex;
+  }
+}
