@@ -1,320 +1,37 @@
-/* ===== Global Reset ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-}
+/* Fonts & Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+body[data-theme="light"] { background: #fff; color: #111; }
+body[data-theme="dark"] { background: #111; color: #eee; }
 
-/* ===== Variables ===== */
-:root {
-  --bg-light: #f9f9f9;
-  --bg-dark: #111;
-  --text-light: #111;
-  --text-dark: #eee;
-  --accent: #0078d4; /* Microsoft-style blue */
-  --accent-soft: #005a9e;
-  --shadow-light: rgba(0,0,0,0.05);
-  --shadow-dark: rgba(0,0,0,0.3);
-  --hero-font: 'Playfair Display', serif;
-}
+/* Header */
+header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: #0078d7; color: #fff; }
+header .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; }
+header nav ul { display: flex; list-style: none; gap: 1.5rem; }
+header nav ul li a { color: #fff; text-decoration: none; font-weight: 600; }
+header nav ul li a:hover { text-decoration: underline; }
+header .theme-btn { padding: .4rem .8rem; cursor: pointer; border: none; border-radius: 4px; background: #fff; color: #0078d7; font-weight: bold; transition: 0.3s; }
+header .theme-btn:hover { background: #e6e6e6; }
 
-/* ===== Body Themes ===== */
-body[data-theme="light"] {
-  background: var(--bg-light);
-  color: var(--text-light);
-}
+/* Hero */
+.hero { text-align: center; padding: 6rem 2rem; background: url('https://source.unsplash.com/1600x600/?technology,digital') center/cover no-repeat; color: #fff; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 1rem; animation: typing 2s steps(20); }
+.hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+.btn-primary { background: #0078d7; color: #fff; padding: 0.8rem 1.6rem; text-decoration: none; border-radius: 6px; font-weight: 600; transition: 0.3s; }
+.btn-primary:hover { background: #005a9e; }
 
-body[data-theme="dark"] {
-  background: var(--bg-dark);
-  color: var(--text-dark);
-}
+/* Features */
+.features { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; padding: 4rem 2rem; }
+.feature-card { background: #f2f2f2; border-radius: 10px; padding: 2rem; max-width: 350px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
+.feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+.feature-card img { width: 100%; border-radius: 8px; margin-bottom: 1rem; }
 
-/* ===== Header & Nav ===== */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: #ffffffcc;
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 6px var(--shadow-light);
-}
+/* CTA */
+.cta { text-align: center; padding: 4rem 2rem; background: #0078d7; color: #fff; }
+.cta a.btn-primary { background: #fff; color: #0078d7; }
+.cta a.btn-primary:hover { background: #e6e6e6; }
 
-.logo {
-  font-family: var(--hero-font);
-  font-size: 1.75rem;
-  color: var(--accent);
-  font-weight: bold;
-}
+/* Footer */
+footer { text-align: center; padding: 2rem; background: #f2f2f2; color: #111; }
 
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav-links a {
-  text-decoration: none;
-  font-weight: 600;
-  color: inherit;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover {
-  color: var(--accent-soft);
-}
-
-/* ===== Controls (Theme + Language) ===== */
-.controls {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-select {
-  padding: 0.4rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  background: inherit;
-  color: inherit;
-  cursor: pointer;
-}
-
-.switch {
-  position: relative;
-  width: 42px;
-  height: 22px;
-}
-
-.switch input {
-  display: none;
-}
-
-.slider {
-  position: absolute;
-  inset: 0;
-  background: #ccc;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.slider:before {
-  content: '';
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  top: 2px;
-  left: 2px;
-  background: #fff;
-  border-radius: 50%;
-  transition: transform 0.3s;
-}
-
-input:checked + .slider {
-  background: var(--accent-soft);
-}
-
-input:checked + .slider:before {
-  transform: translateX(20px);
-}
-
-/* ===== Mobile Menu ===== */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 28px;
-  height: 22px;
-  cursor: pointer;
-}
-
-.menu-toggle span {
-  display: block;
-  height: 3px;
-  background: var(--text-light);
-  border-radius: 2px;
-}
-
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    background: var(--bg-light);
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 8px var(--shadow-light);
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: flex;
-  }
-}
-
-/* ===== Hero Section ===== */
-.hero {
-  text-align: center;
-  padding: 6rem 1rem 4rem 1rem;
-  position: relative;
-}
-
-.hero h1 {
-  font-family: var(--hero-font);
-  font-size: 3rem;
-  color: var(--accent);
-  margin-bottom: 1rem;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 0.15em solid var(--accent);
-  width: 0;
-  animation: typing 3s steps(30, end) forwards, blink 0.75s step-end infinite alternate;
-}
-
-.hero p {
-  font-size: 1.125rem;
-  max-width: 700px;
-  margin: 0 auto 2rem auto;
-  color: inherit;
-}
-
-.hero img {
-  max-width: 100%;
-  border-radius: 12px;
-  margin-top: 2rem;
-}
-
-/* ===== Typing Animation ===== */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 12ch }
-}
-
-@keyframes blink {
-  50% { border-color: transparent }
-}
-
-/* ===== About / Steps / Grid ===== */
-.about, .steps, .grid, .auth {
-  max-width: 1024px;
-  margin: auto;
-  padding: 2rem 1rem;
-}
-
-.about h2, .steps h3, .grid h2 {
-  font-family: var(--hero-font);
-  color: var(--accent);
-  margin-bottom: 1rem;
-}
-
-.steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.step {
-  background: inherit;
-  border-radius: 10px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 6px var(--shadow-light);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.step:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px var(--shadow-light);
-}
-
-.step p {
-  font-style: italic;
-  color: var(--accent-soft);
-}
-
-/* ===== Buttons ===== */
-.btn {
-  display: inline-block;
-  padding: 0.6rem 1.4rem;
-  background: var(--accent);
-  color: #fff;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background 0.3s, transform 0.2s;
-}
-
-.btn:hover {
-  background: var(--accent-soft);
-  transform: translateY(-2px);
-}
-
-/* ===== Auth Inputs ===== */
-.auth input {
-  margin: 0.5rem 0;
-  padding: 0.6rem;
-  width: 260px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-.auth button {
-  margin: 0.5rem;
-  padding: 0.6rem 1.2rem;
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.auth button:hover {
-  background: var(--accent-soft);
-}
-
-/* ===== Footer ===== */
-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  background: #f1f1f1;
-  color: var(--text-light);
-  margin-top: 2rem;
-  font-size: 0.9rem;
-}
-
-/* ===== Dark Mode Overrides ===== */
-body[data-theme="dark"] {
-  background: var(--bg-dark);
-  color: var(--text-dark);
-}
-
-body[data-theme="dark"] header, 
-body[data-theme="dark"] footer,
-body[data-theme="dark"] .step {
-  box-shadow: 0 2px 6px var(--shadow-dark);
-}
-
-body[data-theme="dark"] .nav-links {
-  background: #1a1a1a;
-}
-
-body[data-theme="dark"] select {
-  background: #1f1f1f;
-  color: #eee;
-}
-
-/* ===== Responsive Typography ===== */
-@media (max-width: 480px) {
-  .hero h1 { font-size: 2rem; }
-  .hero p { font-size: 1rem; }
-  .steps { gap: 1rem; }
-}
+/* Typing Animation */
+@keyframes typing { from { width: 0; } to { width: 100%; } }
