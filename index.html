@@ -1,168 +1,81 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ckmillian – Digital Wisdom</title>
-  <!-- Tailwind CDN -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ckmillian – Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            gold: '#d6b260',
-            'gold-soft': '#bfa15b',
-            bgdark: '#111',
-            bgcard: '#1f1f1f'
-          },
-          fontFamily: {
-            serif: ['Playfair Display', 'serif'],
-            inter: ['Inter', 'sans-serif']
-          },
-        }
-      }
-    }
-  </script>
-  <!-- Animate.css for smooth animations -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="font-inter bg-white text-gray-900 transition-colors duration-500">
+<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
 
-  <!-- Header -->
-  <header class="fixed top-0 w-full bg-white dark:bg-bgdark shadow-md z-30">
-    <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
-      <div class="font-serif text-2xl font-bold text-gold">Ckmillian</div>
-
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex gap-6">
-        <a href="index.html" class="hover:text-gold-soft">Home</a>
-        <a href="literacy.html" class="hover:text-gold-soft">Literacy</a>
-        <a href="morality.html" class="hover:text-gold-soft">Morality</a>
-        <a href="security.html" class="hover:text-gold-soft">Security</a>
-        <a href="resources.html" class="hover:text-gold-soft">Resources</a>
-      </nav>
-
-      <!-- Controls -->
-      <div class="flex gap-4 items-center">
-        <select id="lang-toggle" class="border border-gray-300 dark:border-gray-600 rounded px-2 py-1 bg-white dark:bg-bgdark text-gray-900 dark:text-gray-200">
-          <option value="en">English</option>
-          <option value="fr">Français</option>
-          <option value="sw">Swahili</option>
-          <option value="lg">Luganda</option>
-          <option value="es">Español</option>
-          <option value="ja">日本語</option>
-          <option value="zh">中文</option>
-          <option value="ar">العربية</option>
-        </select>
-
-        <button id="theme-toggle" class="w-10 h-6 bg-gray-300 rounded-full relative focus:outline-none">
-          <span id="theme-knob" class="absolute w-4 h-4 bg-white rounded-full top-1 left-1 transition-transform"></span>
-        </button>
-      </div>
-
-      <!-- Mobile Menu Button -->
-      <button id="menu-toggle" class="md:hidden flex flex-col gap-1 w-6 h-6">
-        <span class="block h-0.5 w-full bg-gray-900 dark:bg-gray-200"></span>
-        <span class="block h-0.5 w-full bg-gray-900 dark:bg-gray-200"></span>
-        <span class="block h-0.5 w-full bg-gray-900 dark:bg-gray-200"></span>
+  <!-- ===== Navigation ===== -->
+  <nav class="flex justify-between items-center px-8 py-4 bg-yellow-500 shadow-md">
+    <h1 class="text-2xl font-bold">Ckmillian</h1>
+    <ul class="hidden md:flex gap-8 font-medium">
+      <li><a href="index.html" class="hover:text-blue-600 flex items-center gap-1"><i data-lucide="home"></i> Home</a></li>
+      <li><a href="philosophy.html" class="hover:text-blue-600 flex items-center gap-1"><i data-lucide="book-open"></i> Philosophy</a></li>
+      <li><a href="security.html" class="hover:text-blue-600 flex items-center gap-1"><i data-lucide="shield"></i> Security</a></li>
+      <li><a href="literacy.html" class="hover:text-blue-600 flex items-center gap-1"><i data-lucide="edit-3"></i> Literacy</a></li>
+      <li><a href="morality.html" class="hover:text-blue-600 flex items-center gap-1"><i data-lucide="heart"></i> Morality</a></li>
+      <li><a href="resources.html" class="hover:text-blue-600 flex items-center gap-1"><i data-lucide="globe"></i> Resources</a></li>
+    </ul>
+    <!-- Theme + Lang Toggle -->
+    <div class="flex items-center gap-4">
+      <button id="theme-toggle" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700">
+        <i data-lucide="moon"></i>
       </button>
+      <select id="lang-toggle" class="p-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800">
+        <option value="en">EN</option>
+        <option value="fr">FR</option>
+        <option value="sw">SW</option>
+        <option value="lg">LG</option>
+        <option value="es">ES</option>
+        <option value="ja">JA</option>
+        <option value="zh">ZH</option>
+        <option value="ar">AR</option>
+      </select>
     </div>
+  </nav>
 
-    <!-- Mobile Nav -->
-    <nav id="mobile-nav" class="hidden flex-col gap-4 p-4 bg-white dark:bg-bgdark md:hidden">
-      <a href="index.html" class="hover:text-gold-soft">Home</a>
-      <a href="literacy.html" class="hover:text-gold-soft">Literacy</a>
-      <a href="morality.html" class="hover:text-gold-soft">Morality</a>
-      <a href="security.html" class="hover:text-gold-soft">Security</a>
-      <a href="resources.html" class="hover:text-gold-soft">Resources</a>
-    </nav>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="pt-28 text-center px-4">
-    <h1 class="font-serif text-5xl md:text-6xl font-bold text-gold animate__animated animate__fadeInDown">Ckmillian</h1>
-    <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-700 dark:text-gray-300 animate__animated animate__fadeIn animate__delay-1s">
-      Empowering digital literacy, ethical reflection, and proactive security practices in the modern age.
-    </p>
-    <a href="resources.html" class="inline-block mt-8 px-6 py-3 bg-gold text-white rounded-lg font-semibold hover:bg-gold-soft transition">Explore Resources</a>
-  </section>
-
-  <!-- Features / Cards -->
-  <section class="max-w-6xl mx-auto p-8 grid md:grid-cols-3 gap-6 mt-12">
-    <div class="p-6 bg-white dark:bg-bgcard rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
-      <h3 class="font-serif text-xl text-gold mb-2">Learn Precisely</h3>
-      <p class="italic text-gold-soft">“Real knowledge is to know the extent of one’s ignorance.” – Confucius</p>
-    </div>
-    <div class="p-6 bg-white dark:bg-bgcard rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
-      <h3 class="font-serif text-xl text-gold mb-2">Reflect Ethically</h3>
-      <p class="italic text-gold-soft">“The superior man is modest in his speech but exceeds in his actions.” – Confucius</p>
-    </div>
-    <div class="p-6 bg-white dark:bg-bgcard rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
-      <h3 class="font-serif text-xl text-gold mb-2">Secure Proactively</h3>
-      <p class="italic text-gold-soft">“Victorious warriors win first and then go to war.” – Sun Tzu</p>
+  <!-- ===== Hero Section ===== -->
+  <section class="relative">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80"
+         alt="Tech background"
+         class="absolute inset-0 w-full h-full object-cover opacity-40">
+    <div class="relative z-10 text-center py-24 px-6">
+      <h1 class="text-5xl font-extrabold mb-4 animate-bounce">Welcome to Ckmillian</h1>
+      <p class="text-xl max-w-2xl mx-auto">Exploring literacy, morality, philosophy & security for a safer and smarter digital age.</p>
+      <a href="resources.html" class="mt-6 inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-lg hover:bg-blue-700">Get Started</a>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-100 dark:bg-bgdark text-gray-800 dark:text-gray-200 p-8 mt-12 text-center">
-    <p>&copy; 2025 Ckmillian – Designed by Max</p>
-    <p>Empowering responsible digital engagement</p>
+  <!-- ===== Feature Sections ===== -->
+  <section class="grid md:grid-cols-2 gap-12 px-12 py-20 items-center">
+    <div>
+      <h2 class="text-3xl font-bold mb-4">Our Philosophy</h2>
+      <p class="text-lg mb-6">We believe in blending ethics and technology, ensuring that digital progress is grounded in humanity and purpose.</p>
+      <a href="philosophy.html" class="text-blue-600 font-semibold hover:underline">Read More →</a>
+    </div>
+    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Philosophy" class="rounded-2xl shadow-lg">
+  </section>
+
+  <section class="grid md:grid-cols-2 gap-12 px-12 py-20 items-center">
+    <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437b5?auto=format&fit=crop&w=800&q=80" alt="Security" class="rounded-2xl shadow-lg">
+    <div>
+      <h2 class="text-3xl font-bold mb-4">Security First</h2>
+      <p class="text-lg mb-6">Your digital life deserves protection. Learn about cybersecurity, online privacy, and safe practices to stay ahead of risks.</p>
+      <a href="security.html" class="text-blue-600 font-semibold hover:underline">Discover Security →</a>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="bg-gray-900 text-white text-center py-6">
+    <p>© 2025 Ckmillian. Built with care and vision.</p>
   </footer>
 
-  <!-- Scripts -->
-  <script>
-    // Dark/Light Toggle
-    const themeBtn = document.getElementById('theme-toggle');
-    const themeKnob = document.getElementById('theme-knob');
-    const htmlEl = document.documentElement;
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    htmlEl.setAttribute('data-theme', savedTheme);
-    if(savedTheme==='dark') themeKnob.classList.add('translate-x-4');
-
-    themeBtn.addEventListener('click', () => {
-      const current = htmlEl.getAttribute('data-theme');
-      const next = current==='light'?'dark':'light';
-      htmlEl.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      themeKnob.classList.toggle('translate-x-4');
-    });
-
-    // Mobile Nav Toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileNav = document.getElementById('mobile-nav');
-    menuToggle.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
-
-    // Language Toggle
-    const translations = {
-      en:{title:"Welcome to Ckmillian", philosophy:"Philosophy", security:"Security", literacy:"Literacy", morality:"Morality", resources:"Resources"},
-      fr:{title:"Bienvenue à Ckmillian", philosophy:"Philosophie", security:"Sécurité", literacy:"Alphabétisation", morality:"Moralité", resources:"Ressources"},
-      sw:{title:"Karibu Ckmillian", philosophy:"Falsafa", security:"Usalama", literacy:"Elimu", morality:"Maadili", resources:"Rasilimali"},
-      lg:{title:"Tukwanirizza ku Ckmillian", philosophy:"Efilosofi", security:"Obukuumi", literacy:"Obusomi", morality:"Obutuufu", resources:"Ebikozesebwa"},
-      es:{title:"Bienvenido a Ckmillian", philosophy:"Filosofía", security:"Seguridad", literacy:"Alfabetización", morality:"Moralidad", resources:"Recursos"},
-      ja:{title:"Ckmillianへようこそ", philosophy:"哲学", security:"セキュリティ", literacy:"リテラシー", morality:"道徳", resources:"リソース"},
-      zh:{title:"欢迎来到Ckmillian", philosophy:"哲学", security:"安全", literacy:"素养", morality:"道德", resources:"资源"},
-      ar:{title:"مرحبًا بك في Ckmillian", philosophy:"الفلسفة", security:"الأمن", literacy:"المحو الأمية", morality:"الأخلاق", resources:"الموارد"}
-    };
-
-    const langSelect = document.getElementById('lang-toggle');
-    const savedLang = localStorage.getItem('lang') || 'en';
-    langSelect.value = savedLang;
-
-    langSelect.addEventListener('change', e => {
-      const lang = e.target.value;
-      localStorage.setItem('lang', lang);
-      applyTranslations(lang);
-    });
-
-    function applyTranslations(lang){
-      document.querySelectorAll('[data-translate]').forEach(el=>{
-        const key = el.getAttribute('data-translate');
-        if(translations[lang][key]) el.textContent = translations[lang][key];
-      });
-    }
-    applyTranslations(savedLang);
-  </script>
+  <!-- ===== JS ===== -->
+  <script src="script.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>
