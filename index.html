@@ -1,67 +1,67 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ckmillian</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Navigation -->
+  <!-- HEADER -->
   <header>
     <div class="logo">Ckmillian</div>
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Philosophy</a></li>
-        <li><a href="#">Literacy</a></li>
-        <li><a href="#">Morality</a></li>
-        <li><a href="#">Security</a></li>
-        <li><a href="#">Resources</a></li>
+        <li><a href="#literacy">Literacy</a></li>
+        <li><a href="#morality">Morality</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#resources">Resources</a></li>
       </ul>
-      <button class="theme-btn">Dark</button>
     </nav>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- HERO SECTION -->
   <section class="hero">
-    <h1>Ckmillian</h1>
-    <p>Empowering minds for the digital era. Ethics, literacy, and security in one place.</p>
-    <a href="#" class="btn-primary">Get Started</a>
+    <h1>Welcome to Ckmillian</h1>
+    <p>Learn, grow, and empower yourself with knowledge.</p>
+    <a href="#literacy" class="cta">Start Learning</a>
   </section>
 
-  <!-- Features Section -->
-  <section class="features">
-    <div class="feature-card">
-      <img src="https://source.unsplash.com/400x300/?books,learning" alt="Learn">
-      <h3>Learn Precisely</h3>
-      <p>Knowledge is power. Understand what matters most in the digital world.</p>
-    </div>
-    <div class="feature-card">
-      <img src="https://source.unsplash.com/400x300/?ethics,reflection" alt="Reflect">
-      <h3>Reflect Ethically</h3>
-      <p>Actions define us. Make decisions guided by strong ethical principles.</p>
-    </div>
-    <div class="feature-card">
-      <img src="https://source.unsplash.com/400x300/?security,technology" alt="Secure">
-      <h3>Secure Proactively</h3>
-      <p>Protect yourself and your information. Prevention is always better than cure.</p>
-    </div>
+  <!-- LITERACY SECTION -->
+  <section id="literacy" class="content-section">
+    <h2>Literacy</h2>
+    <p>Ckmillian provides comprehensive guides to enhance reading, writing, and comprehension skills. Build a strong foundation for learning and self-expression.</p>
   </section>
 
-  <!-- Call to Action -->
-  <section class="cta">
-    <h2>Join the Ckmillian Community</h2>
-    <p>Get access to research, tools, and guidance to thrive digitally.</p>
-    <a href="#" class="btn-primary">Sign Up Now</a>
+  <!-- MORALITY SECTION -->
+  <section id="morality" class="content-section">
+    <h2>Morality</h2>
+    <p>Learn to make ethical decisions, understand human values, and develop a strong sense of right and wrong in daily life.</p>
   </section>
 
-  <!-- Footer -->
+  <!-- SECURITY SECTION -->
+  <section id="security" class="content-section">
+    <h2>Security</h2>
+    <p>Gain practical knowledge about digital and physical safety. Learn cybersecurity basics, personal safety, and how to protect yourself online and offline.</p>
+  </section>
+
+  <!-- RESOURCES SECTION -->
+  <section id="resources" class="content-section">
+    <h2>Resources</h2>
+    <p>Access books, guides, tools, and references that help you apply what you learn. Ckmillian ensures you always have the right resources at hand.</p>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 Ckmillian | Designed by Mudde Carl Maximillian Kintu</p>
+    <p>&copy; 2025 Ckmillian. All Rights Reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- JS -->
+  <script>
+    function toggleMenu() {
+      document.querySelector('nav').classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
