@@ -1,94 +1,91 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Ckmillian – Home</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style2.css">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Ckmillian – Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style2.css">
 </head>
 <body>
-  <header>
-    <div class="logo" data-translate="title">Ckmillian</div>
 
-    <div class="menu-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></div>
+<header>
+  <div class="logo" data-translate="title">Ckmillian</div>
+  <div class="menu-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></div>
+  <nav class="nav-links">
+    <a href="index.html" class="active" data-translate="title">Home</a>
+    <a href="literacy.html" data-translate="literacy">Literacy</a>
+    <a href="morality.html" data-translate="morality">Morality</a>
+    <a href="security.html" data-translate="security">Security</a>
+    <a href="resources.html" data-translate="resources">Resources</a>
+  </nav>
+  <div class="controls">
+    <select id="lang-toggle" aria-label="Language selection">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="sw">Swahili</option>
+      <option value="lg">Luganda</option>
+      <option value="es">Español</option>
+      <option value="ja">日本語</option>
+      <option value="zh">中文</option>
+      <option value="ar">العربية</option>
+    </select>
+    <label class="switch" aria-label="Toggle light/dark theme">
+      <input type="checkbox" id="themeSwitch"/>
+      <span class="slider"></span>
+    </label>
+  </div>
+</header>
 
-    <nav class="nav-links">
-      <a href="index.html" class="active" data-translate="title">Home</a>
-      <a href="literacy.html" data-translate="literacy">Literacy</a>
-      <a href="morality.html" data-translate="morality">Morality</a>
-      <a href="security.html" data-translate="security">Security</a>
-      <a href="resources.html" data-translate="resources">Resources</a>
-    </nav>
+<section class="hero">
+  <h1 class="typing-animation">Ckmillian</h1>
+  <p>“Holistic wisdom shapes modern resilience.” – Inspired by Sun Tzu</p>
+  <img src="https://via.placeholder.com/1200x400.png?text=Digital+Learning" alt="Digital Learning Banner">
+</section>
 
-    <div class="controls">
-      <select id="lang-toggle" aria-label="Language selection">
-        <option value="en">English</option>
-        <option value="fr">Français</option>
-        <option value="sw">Swahili</option>
-        <option value="lg">Luganda</option>
-        <option value="es">Español</option>
-        <option value="ja">日本語</option>
-        <option value="zh">中文</option>
-        <option value="ar">العربية</option>
-      </select>
+<section class="about">
+  <h2>Our Mission</h2>
+  <p>We empower individuals to engage confidently and responsibly in the digital sphere by providing clear, research-backed guidance on literacy, ethical conduct, and robust security practices.</p>
+</section>
 
-      <label class="switch" aria-label="Toggle light/dark theme">
-        <input type="checkbox" id="themeSwitch"/>
-        <span class="slider"></span>
-      </label>
-    </div>
-  </header>
+<section class="steps">
+  <div class="step">
+    <h3>Learn Precisely</h3>
+    <p>“Real knowledge is to know the extent of one’s ignorance.” – Confucius</p>
+  </div>
+  <div class="step">
+    <h3>Reflect Ethically</h3>
+    <p>“The superior man is modest in his speech but exceeds in his actions.” – Confucius</p>
+  </div>
+  <div class="step">
+    <h3>Secure Proactively</h3>
+    <p>“Victorious warriors win first and then go to war.” – Sun Tzu</p>
+  </div>
+</section>
 
-  <section class="hero">
-    <h1 class="typing-animation">Ckmillian</h1>
-    <p>“Holistic wisdom shapes modern resilience.” – Inspired by Sun Tzu</p>
-    <img src="https://via.placeholder.com/800x300.png?text=Digital+Learning" alt="Digital Learning Image">
-  </section>
+<section class="grid">
+  <h2>Explore Our Sections</h2>
+  <a href="literacy.html" class="btn" data-translate="literacy">Explore Literacy</a>
+  <a href="morality.html" class="btn" data-translate="morality">Explore Morality</a>
+  <a href="security.html" class="btn" data-translate="security">Explore Security</a>
+  <a href="resources.html" class="btn" data-translate="resources">Explore Resources</a>
+</section>
 
-  <section class="about">
-    <h2>Our Mission</h2>
-    <p>We empower individuals to engage confidently and responsibly in the digital sphere by providing clear, research-backed guidance on literacy, ethical conduct, and robust security practices.</p>
-  </section>
+<section class="auth">
+  <h3>Member Access</h3>
+  <input type="email" placeholder="Email Address"/>
+  <input type="password" placeholder="Password"/>
+  <div>
+    <button onclick="loginUser()">Login</button>
+    <button onclick="signupUser()">Sign Up</button>
+  </div>
+</section>
 
-  <section class="steps">
-    <div class="step">
-      <h3>Learn Precisely</h3>
-      <p>“Real knowledge is to know the extent of one’s ignorance.” – Confucius</p>
-    </div>
-    <div class="step">
-      <h3>Reflect Ethically</h3>
-      <p>“The superior man is modest in his speech but exceeds in his actions.” – Confucius</p>
-    </div>
-    <div class="step">
-      <h3>Secure Proactively</h3>
-      <p>“Victorious warriors win first and then go to war.” – Sun Tzu</p>
-    </div>
-  </section>
+<footer>
+  <p>&copy; 2025 Ckmillian</p>
+  <p>Designed by Mudde Carl Maximillian Kintu</p>
+</footer>
 
-  <section class="grid">
-    <h2>Explore Our Sections</h2>
-    <a href="literacy.html" class="btn" data-translate="literacy">Explore Literacy</a>
-    <a href="morality.html" class="btn" data-translate="morality">Explore Morality</a>
-    <a href="security.html" class="btn" data-translate="security">Explore Security</a>
-    <a href="resources.html" class="btn" data-translate="resources">Explore Resources</a>
-  </section>
-
-  <section class="auth">
-    <h3>Member Access</h3>
-    <input type="email" placeholder="Email Address"/>
-    <input type="password" placeholder="Password"/>
-    <div>
-      <button onclick="loginUser()">Login</button>
-      <button onclick="signupUser()">Sign Up</button>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Ckmillian</p>
-    <p>Designed by Mudde Carl Maximillian Kintu</p>
-  </footer>
-
-  <script src="script2.js"></script>
+<script src="script2.js"></script>
 </body>
 </html>
