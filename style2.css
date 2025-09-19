@@ -98,36 +98,42 @@ header nav ul li a:hover {
   background-color: #e03a00;
 }
 
-.glitch {
+.glitch span {
+  display: inline-block;
   position: relative;
-  font-family: 'Courier New', Courier, monospace; /* unique font */
+  color: #fff;
+  font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   font-size: 4rem;
-  color: #fff;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  animation: glitch 1s infinite;
-  text-shadow:
-    -2px -2px #f00,  /* red shadow top-left */
-    2px 2px #0ff,    /* cyan shadow bottom-right */
-    -1px 1px #ff0,   /* yellow subtle */
-    1px -1px #f0f;   /* magenta subtle */
+  animation: glitchLetter 1s infinite;
 }
 
-/* Slight horizontal jitter */
-@keyframes glitch {
-  0% { transform: translate(0, 0); }
-  10% { transform: translate(-2px, 1px); }
-  20% { transform: translate(2px, -1px); }
-  30% { transform: translate(-1px, 2px); }
-  40% { transform: translate(1px, -2px); }
-  50% { transform: translate(0, 1px); }
-  60% { transform: translate(2px, -1px); }
-  70% { transform: translate(-2px, 2px); }
-  80% { transform: translate(1px, -1px); }
-  90% { transform: translate(-1px, 0); }
-  100% { transform: translate(0, 0); }
+/* Add random delays for each letter */
+.glitch span:nth-child(1) { animation-delay: 0s; }
+.glitch span:nth-child(2) { animation-delay: 0.1s; }
+.glitch span:nth-child(3) { animation-delay: 0.2s; }
+.glitch span:nth-child(4) { animation-delay: 0.15s; }
+.glitch span:nth-child(5) { animation-delay: 0.25s; }
+.glitch span:nth-child(6) { animation-delay: 0.05s; }
+.glitch span:nth-child(7) { animation-delay: 0.18s; }
+.glitch span:nth-child(8) { animation-delay: 0.12s; }
+.glitch span:nth-child(9) { animation-delay: 0.22s; }
+
+/* Letter-by-letter glitch animation */
+@keyframes glitchLetter {
+  0%   { transform: translate(0,0); color: #fff; }
+  10%  { transform: translate(-2px,-2px); color: #f00; }
+  20%  { transform: translate(2px,1px); color: #0ff; }
+  30%  { transform: translate(-1px,2px); color: #ff0; }
+  40%  { transform: translate(1px,-1px); color: #f0f; }
+  50%  { transform: translate(0,1px); color: #fff; }
+  60%  { transform: translate(2px,-2px); color: #f0f; }
+  70%  { transform: translate(-2px,2px); color: #0ff; }
+  80%  { transform: translate(1px,-1px); color: #ff0; }
+  90%  { transform: translate(-1px,0); color: #f00; }
+  100% { transform: translate(0,0); color: #fff; }
 }
+
 
 
 /* ===== CONTENT SECTIONS ===== */
