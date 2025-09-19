@@ -100,66 +100,33 @@ header nav ul li a:hover {
 
 .glitch {
   position: relative;
-  color: #fff; /* main color */
-  font-family: 'Courier New', Courier, monospace; /* swap for any unique font */
+  font-family: 'Courier New', Courier, monospace; /* unique font */
   font-weight: bold;
   font-size: 4rem;
+  color: #fff;
   letter-spacing: 2px;
   text-transform: uppercase;
+  animation: glitch 1s infinite;
+  text-shadow:
+    -2px -2px #f00,  /* red shadow top-left */
+    2px 2px #0ff,    /* cyan shadow bottom-right */
+    -1px 1px #ff0,   /* yellow subtle */
+    1px -1px #f0f;   /* magenta subtle */
 }
 
-.glitch::before,
-.glitch::after {
-  content: 'Ckmillian';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-}
-
-.glitch::before {
-  left: 2px;
-  text-shadow: -2px 0 #0ff, 2px 2px #ff0;
-  clip: rect(2px, 9999px, 44px, 0);
-  animation: glitchTop 2s infinite linear alternate-reverse;
-}
-
-.glitch::after {
-  left: -2px;
-  text-shadow: -2px -2px #f0f, 2px 0 #ff00ff;
-  clip: rect(0px, 9999px, 40px, 0);
-  animation: glitchBottom 1.5s infinite linear alternate-reverse;
-}
-
-/* flicker the main text */
-.glitch {
-  animation: flicker 3s infinite;
-}
-
-@keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
-  20%, 22%, 24%, 55% { opacity: 0.6; }
-}
-
-/* Top slice distortion */
-@keyframes glitchTop {
-  0% { transform: translate(0); }
-  20% { transform: translate(-4px, -2px); }
-  40% { transform: translate(-2px, 2px); }
-  60% { transform: translate(3px, -1px); }
-  80% { transform: translate(-2px, 1px); }
-  100% { transform: translate(0); }
-}
-
-/* Bottom slice distortion */
-@keyframes glitchBottom {
-  0% { transform: translate(0); }
-  20% { transform: translate(3px, 1px); }
-  40% { transform: translate(-3px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(-1px, -1px); }
-  100% { transform: translate(0); }
+/* Slight horizontal jitter */
+@keyframes glitch {
+  0% { transform: translate(0, 0); }
+  10% { transform: translate(-2px, 1px); }
+  20% { transform: translate(2px, -1px); }
+  30% { transform: translate(-1px, 2px); }
+  40% { transform: translate(1px, -2px); }
+  50% { transform: translate(0, 1px); }
+  60% { transform: translate(2px, -1px); }
+  70% { transform: translate(-2px, 2px); }
+  80% { transform: translate(1px, -1px); }
+  90% { transform: translate(-1px, 0); }
+  100% { transform: translate(0, 0); }
 }
 
 
