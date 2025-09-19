@@ -3,238 +3,281 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ckmillian</title>
-  <link rel="stylesheet" href="style2.css">
-  <!-- Font Awesome 6 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <title>Ckmillian – Home</title>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/5f8e8d7f2c.js" crossorigin="anonymous"></script>
+
   <style>
-    html { scroll-behavior: smooth; }
-    .detail-section {
+    /* ===== Global Reset ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(120deg, #1f2937, #111827);
+      color: white;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    /* ===== Glitch Effect ===== */
+    .glitch {
+      position: relative;
+      font-weight: bold;
+      display: inline-block;
+      animation: glitch-skew 1s infinite linear alternate-reverse;
+    }
+    .glitch::before, .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      overflow: hidden;
+      clip: rect(0, 900px, 0, 0);
+    }
+    .glitch::before {
+      left: 2px;
+      text-shadow: -2px 0 red;
+      animation: glitch-anim 2s infinite linear alternate-reverse;
+    }
+    .glitch::after {
+      left: -2px;
+      text-shadow: -2px 0 blue;
+      animation: glitch-anim2 3s infinite linear alternate-reverse;
+    }
+    @keyframes glitch-anim {
+      0% { clip: rect(44px, 9999px, 56px, 0); }
+      25% { clip: rect(12px, 9999px, 80px, 0); }
+      50% { clip: rect(65px, 9999px, 90px, 0); }
+      75% { clip: rect(24px, 9999px, 45px, 0); }
+      100% { clip: rect(5px, 9999px, 20px, 0); }
+    }
+    @keyframes glitch-anim2 {
+      0% { clip: rect(12px, 9999px, 36px, 0); }
+      25% { clip: rect(55px, 9999px, 75px, 0); }
+      50% { clip: rect(30px, 9999px, 50px, 0); }
+      75% { clip: rect(70px, 9999px, 90px, 0); }
+      100% { clip: rect(40px, 9999px, 60px, 0); }
+    }
+    @keyframes glitch-skew {
+      0% { transform: skew(0deg); }
+      50% { transform: skew(2deg); }
+      100% { transform: skew(-2deg); }
+    }
+
+    /* ===== Cards ===== */
+    #cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 50px 20px;
       background: #fff;
-      padding: 3rem 2rem;
-      margin: 2rem auto;
-      max-width: 1000px;
+    }
+    .card {
+      background: #fdfdfd;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    .detail-section h3 {
+    .card i {
       font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #222;
-      text-align: center;
+      margin-bottom: 15px;
+      color: #1f2937;
     }
-    .detail-section p {
-      font-size: 1.1rem;
-      color: #555;
-      line-height: 1.7;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+    .card p {
+      margin-bottom: 15px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 8px 15px;
+      background: #1f2937;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: #111827;
+    }
+
+    /* ===== Section Styling ===== */
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #1f2937;
+    }
+    section p {
+      margin-bottom: 15px;
+    }
+    section ul {
+      margin: 15px 0 20px 20px;
+    }
+    section ul li {
+      margin-bottom: 8px;
+    }
+    section ul i {
+      margin-right: 8px;
+      color: #1f2937;
+    }
+
+    /* ===== Back to Top ===== */
+    #backToTop {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #1f2937;
+      color: white;
+      border: none;
+      padding: 12px 15px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: none;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+    #backToTop:hover {
+      background: #111827;
     }
   </style>
 </head>
 <body>
-  <!-- HEADER -->
+
+  <!-- Hero -->
   <header>
-    <div class="logo">Ckmillian</div>
-    <nav>
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="#literacy">Literacy</a></li>
-        <li><a href="#morality">Morality</a></li>
-        <li><a href="#security">Security</a></li>
-        <li><a href="#resources">Resources</a></li>
-      </ul>
-    </nav>
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <h1>Welcome to <span class="glitch" data-text="Ckmillian">Ckmillian</span></h1>
+    <p>Explore literacy, morality, security, and resources.</p>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-   <h1>Welcome to 
-  <span class="glitch">
-    <span>C</span><span>k</span><span>m</span><span>i</span><span>l</span><span>l</span><span>i</span><span>a</span><span>n</span>
-  </span>
-</h1>
-
-    <p>Learn, grow, and empower yourself with knowledge.</p>
-    <a href="#literacy" class="cta">Start Learning</a>
+  <!-- Cards -->
+  <section id="cards">
+    <div class="card">
+      <i class="fas fa-book"></i>
+      <h3>Literacy</h3>
+      <p>Empowering minds through knowledge.</p>
+      <a href="#literacy" class="btn">Learn More</a>
+    </div>
+    <div class="card">
+      <i class="fas fa-balance-scale"></i>
+      <h3>Morality</h3>
+      <p>Guiding principles for ethical living.</p>
+      <a href="#morality" class="btn">Learn More</a>
+    </div>
+    <div class="card">
+      <i class="fas fa-shield-alt"></i>
+      <h3>Security</h3>
+      <p>Protecting what matters most.</p>
+      <a href="#security" class="btn">Learn More</a>
+    </div>
+    <div class="card">
+      <i class="fas fa-tools"></i>
+      <h3>Resources</h3>
+      <p>Tools to help you succeed.</p>
+      <a href="#resources" class="btn">Learn More</a>
+    </div>
   </section>
 
-<!-- LITERACY SECTION -->
-<section id="literacy" class="content-section">
-  <h2>Literacy</h2>
-  <div class="cards">
-    <div class="card">
-      <i class="fas fa-book fa-2x"></i>
-      <h3>Reading Skills</h3>
-      <p>Improve comprehension and speed with curated exercises and reading strategies.</p>
-      <a href="#reading-details" class="learn-more">Learn More</a>
-    </div>
-    <div class="card">
-      <i class="fas fa-pen-fancy fa-2x"></i>
-      <h3>Writing Skills</h3>
-      <p>Master clear, concise, and expressive writing for school and personal projects.</p>
-      <a href="#writing-details" class="learn-more">Learn More</a>
-    </div>
-    <div class="card">
-      <i class="fas fa-book-reader fa-2x"></i>
-      <h3>Comprehension</h3>
-      <p>Enhance memory and understanding with effective comprehension techniques.</p>
-      <a href="#comprehension-details" class="learn-more">Learn More</a>
-    </div>
-  </div>
-</section>
+  <!-- Literacy -->
+  <section id="literacy">
+    <h2>Literacy</h2>
+    <p>Literacy is more than reading words—it’s unlocking understanding. It enables us to connect ideas, cultures, and generations.</p>
+    <ul>
+      <li><i class="fas fa-book-reader"></i> Promote reading culture</li>
+      <li><i class="fas fa-language"></i> Multilingual learning</li>
+      <li><i class="fas fa-laptop-code"></i> Digital literacy skills</li>
+    </ul>
+    <p>At Ckmillian, we aim to equip communities with lifelong learning abilities, bridging gaps in education and opportunity.</p>
+  </section>
 
-<!-- Literacy Details -->
-<section id="reading-details" class="detail-section">
-  <h3>Reading Skills</h3>
-  <p>Sharpen your reading through skimming, scanning, and deep-reading techniques. Explore curated book lists and practice speed-reading to improve both comprehension and retention.</p>
-</section>
+  <!-- Morality -->
+  <section id="morality">
+    <h2>Morality</h2>
+    <p>Morality helps us navigate right and wrong, justice and fairness. It’s the compass of our shared humanity.</p>
+    <ul>
+      <li><i class="fas fa-hand-holding-heart"></i> Compassion and empathy</li>
+      <li><i class="fas fa-gavel"></i> Fairness and justice</li>
+      <li><i class="fas fa-users"></i> Respect for community</li>
+    </ul>
+    <p>Ckmillian fosters ethical growth—helping young minds build values that strengthen both the individual and society.</p>
+  </section>
 
-<section id="writing-details" class="detail-section">
-  <h3>Writing Skills</h3>
-  <p>Develop clear and expressive writing. Learn sentence structure, grammar mastery, and storytelling techniques that make your essays, blogs, and personal work stand out.</p>
-</section>
+  <!-- Security -->
+  <section id="security">
+    <h2>Security</h2>
+    <p>Security is the foundation of trust, safety, and freedom. It extends beyond walls—into digital, social, and personal spaces.</p>
+    <ul>
+      <li><i class="fas fa-lock"></i> Cybersecurity awareness</li>
+      <li><i class="fas fa-home"></i> Safe community practices</li>
+      <li><i class="fas fa-user-shield"></i> Personal safety skills</li>
+    </ul>
+    <p>We strive to empower communities with knowledge and practices to stay safe in both physical and online environments.</p>
+  </section>
 
-<section id="comprehension-details" class="detail-section">
-  <h3>Comprehension</h3>
-  <p>Boost your understanding with active recall, note-taking frameworks, and summarization methods. Perfect for studying, exams, and everyday information retention.</p>
-</section>
+  <!-- Resources -->
+  <section id="resources">
+    <h2>Resources</h2>
+    <p>Knowledge grows when shared. Resources help us learn faster, do better, and solve bigger problems together.</p>
+    <ul>
+      <li><i class="fas fa-toolbox"></i> Practical guides</li>
+      <li><i class="fas fa-lightbulb"></i> Ideas and inspiration</li>
+      <li><i class="fas fa-chalkboard-teacher"></i> Tutorials and workshops</li>
+    </ul>
+    <p>Ckmillian provides open tools and resources—curated to support growth in literacy, morality, and security.</p>
+  </section>
 
-<!-- MORALITY SECTION -->
-<section id="morality" class="content-section">
-  <h2>Morality</h2>
-  <div class="cards">
-    <div class="card">
-      <i class="fas fa-lightbulb fa-2x"></i>
-      <h3>Ethical Thinking</h3>
-      <p>Understand moral dilemmas and develop strong ethical decision-making skills.</p>
-      <a href="#ethical-details" class="learn-more">Learn More</a>
-    </div>
-    <div class="card">
-      <i class="fas fa-compass fa-2x"></i>
-      <h3>Values & Principles</h3>
-      <p>Build a personal code of conduct to guide actions and relationships.</p>
-      <a href="#values-details" class="learn-more">Learn More</a>
-    </div>
-    <div class="card">
-      <i class="fas fa-users fa-2x"></i>
-      <h3>Social Responsibility</h3>
-      <p>Learn how to positively impact your community and environment.</p>
-      <a href="#social-details" class="learn-more">Learn More</a>
-    </div>
-  </div>
-</section>
+  <!-- Back to Top Button -->
+  <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
-<!-- Morality Details -->
-<section id="ethical-details" class="detail-section">
-  <h3>Ethical Thinking</h3>
-  <p>Train your mind to evaluate tough moral dilemmas. Practice scenarios that sharpen your judgment while balancing fairness, empathy, and logic.</p>
-</section>
-
-<section id="values-details" class="detail-section">
-  <h3>Values & Principles</h3>
-  <p>Discover how honesty, respect, and resilience form the pillars of a strong moral compass. Build your personal guide to life decisions.</p>
-</section>
-
-<section id="social-details" class="detail-section">
-  <h3>Social Responsibility</h3>
-  <p>Engage in projects and discussions that strengthen your role in your community. Learn to balance personal goals with the greater good.</p>
-</section>
-
-<!-- SECURITY SECTION -->
-<section id="security" class="content-section">
-  <h2>Security</h2>
-  <div class="cards">
-    <div class="card">
-      <i class="fas fa-lock fa-2x"></i>
-      <h3>Digital Safety</h3>
-      <p>Protect your devices, accounts, and personal information online.</p>
-      <a href="#digital-details" class="learn-more">Learn More</a>
-    </div>
-    <div class="card">
-      <i class="fas fa-shield-alt fa-2x"></i>
-      <h3>Physical Safety</h3>
-      <p>Stay aware of your surroundings and learn tips for personal safety at home and school.</p>
-      <a href="#physical-details" class="learn-more">Learn More</a>
-    </div>
-    <div class="card">
-      <i class="fas fa-user-shield fa-2x"></i>
-      <h3>Cybersecurity Basics</h3>
-      <p>Learn about VPNs, antivirus tools, and safe browsing habits.</p>
-      <a href="#cyber-details" class="learn-more">Learn More</a>
-    </div>
-  </div>
-</section>
-
-<!-- Security Details -->
-<section id="digital-details" class="detail-section">
-  <h3>Digital Safety</h3>
-  <p>From strong passwords to two-factor authentication, explore practical steps to keep your online identity secure from hackers and scams.</p>
-</section>
-
-<section id="physical-details" class="detail-section">
-  <h3>Physical Safety</h3>
-  <p>Learn daily safety routines: awareness of exits, safe travel practices, and home security basics to reduce risks in the physical world.</p>
-</section>
-
-<section id="cyber-details" class="detail-section">
-  <h3>Cybersecurity Basics</h3>
-  <p>Understand how VPNs, firewalls, and antivirus software work. Get started with the essentials of staying safe online without overwhelming complexity.</p>
-</section>
-
-<!-- RESOURCES SECTION -->
-<section id="resources" class="content-section">
-  <h2>Resources</h2>
-  <div class="cards">
-    <div class="card">
-      <i class="fas fa-book-open fa-2x"></i>
-      <h3>Guides</h3>
-      <p>Step-by-step guides to help you master literacy, morality, and security topics.</p>
-      <a href="#guides-details" class="learn-more">Learn More</a>
-    </div>
-    <div class="card">
-      <i class="fas fa-tools fa-2x"></i>
-      <h3>Tools & References</h3>
-      <p>Access helpful tools, cheat sheets, and references for practical learning.</p>
-      <a href="#tools-details" class="learn-more">Learn More</a>
-    </div>
-    <div class="card">
-      <i class="fas fa-users fa-2x"></i>
-      <h3>Community</h3>
-      <p>Connect with peers, share knowledge, and participate in discussions.</p>
-      <a href="#community-details" class="learn-more">Learn More</a>
-    </div>
-  </div>
-</section>
-
-<!-- Resources Details -->
-<section id="guides-details" class="detail-section">
-  <h3>Guides</h3>
-  <p>Browse practical tutorials on literacy, morality, and security. Includes beginner-friendly steps and advanced practices to grow your skills.</p>
-</section>
-
-<section id="tools-details" class="detail-section">
-  <h3>Tools & References</h3>
-  <p>Find dictionaries, checklists, and cheat sheets to make learning smooth. Explore curated links to trusted platforms and resources.</p>
-</section>
-
-<section id="community-details" class="detail-section">
-  <h3>Community</h3>
-  <p>Join discussions, share stories, and connect with learners like you. Our community is here to support and inspire your growth.</p>
-</section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 Ckmillian. All Rights Reserved.</p>
-  </footer>
-
-  <!-- JS -->
+  <!-- Script for Back to Top -->
   <script>
-    function toggleMenu() {
-      document.querySelector('nav').classList.toggle('active');
-    }
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 200) {
+        backToTop.style.display = "block";
+      } else {
+        backToTop.style.display = "none";
+      }
+    });
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   </script>
+
 </body>
 </html>
