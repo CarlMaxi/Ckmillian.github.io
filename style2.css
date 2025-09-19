@@ -97,6 +97,64 @@ header nav ul li a:hover {
 .hero .cta:hover {
   background-color: #e03a00;
 }
+.glitch {
+  position: relative;
+  color: #fc4301;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace; /* unique font */
+  animation: glitch 1s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: 'Ckmillian';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 #0ff;
+  animation: glitchTop 1s infinite;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: 2px 0 #f0f;
+  animation: glitchBottom 1s infinite;
+}
+
+/* Main glitch movement */
+@keyframes glitch {
+  0%, 100% { transform: none; }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+/* Top slice */
+@keyframes glitchTop {
+  0%, 100% { clip: rect(0, 900px, 0, 0); }
+  20% { clip: rect(0, 900px, 15px, 0); }
+  40% { clip: rect(5px, 900px, 20px, 0); }
+  60% { clip: rect(10px, 900px, 25px, 0); }
+  80% { clip: rect(0, 900px, 15px, 0); }
+}
+
+/* Bottom slice */
+@keyframes glitchBottom {
+  0%, 100% { clip: rect(0, 900px, 0, 0); }
+  20% { clip: rect(20px, 900px, 35px, 0); }
+  40% { clip: rect(25px, 900px, 40px, 0); }
+  60% { clip: rect(20px, 900px, 35px, 0); }
+  80% { clip: rect(25px, 900px, 40px, 0); }
+}
+
 
 /* ===== CONTENT SECTIONS ===== */
 .content-section {
