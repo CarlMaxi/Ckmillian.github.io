@@ -268,3 +268,32 @@ footer {
   from {opacity: 0; transform: translateY(20px);}
   to {opacity: 1; transform: translateY(0);}
 }
+/* ===== SCROLL ANIMATIONS ===== */
+
+/* Modern CSS Scroll Timeline (works in Chromium/Edge/Safari TP) */
+@supports (animation-timeline: auto) {
+  .card {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: scrollFadeUp 1s ease-out forwards;
+    animation-timeline: view();         /* tie to scroll */
+    animation-range: entry 0% cover 40%; /* triggers when entering */
+  }
+}
+
+/* Fallback: simple fade-in when visible */
+@keyframes scrollFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optional: stagger effect */
+.cards .card:nth-child(1) { animation-delay: 0.1s; }
+.cards .card:nth-child(2) { animation-delay: 0.3s; }
+.cards .card:nth-child(3) { animation-delay: 0.5s; }
