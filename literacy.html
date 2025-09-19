@@ -4,85 +4,54 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Ckmillian – Literacy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style2.css"/>
 </head>
 <body>
-  <header>
-    <div class="logo">Ckmillian</div>
-    <div class="menu-toggle" id="menuToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></div>
-    <nav class="nav-links">
-      <a href="literacy.html" class="active">Literacy</a>
-      <a href="morality.html">Morality</a>
-      <a href="security.html">Security</a>
-      <a href="resources.html">Resources</a>
-    </nav>
-    <div class="controls">
- <select id="lang-toggle">
-  <option value="en">English</option>
-  <option value="fr">Français</option>
-  <option value="sw">Swahili</option>
-  <option value="lg">Luganda</option>
-  <option value="es">Español</option>
-  <option value="ja">日本語</option>
-  <option value="zh">中文</option>
-</select>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="literacy.html" class="active">Literacy</a></li>
+      <li><a href="morality.html">Morality</a></li>
+      <li><a href="security.html">Security</a></li>
+      <li><a href="resources.html">Resources</a></li>
+    </ul>
+  </nav>
 
-      <label class="switch" aria-label="Toggle light/dark theme">
-        <input type="checkbox" id="themeSwitch"/>
-        <span class="slider"></span>
-      </label>
+  <section id="literacy" class="content-section">
+    <h2>Literacy</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Reading Skills</h3>
+        <p>Improve comprehension and speed with curated exercises.</p>
+        <a href="#reading-details" class="learn-more">Learn More</a>
+      </div>
+      <div class="card">
+        <h3>Writing Skills</h3>
+        <p>Master clear and expressive writing for school and projects.</p>
+        <a href="#writing-details" class="learn-more">Learn More</a>
+      </div>
+      <div class="card">
+        <h3>Comprehension</h3>
+        <p>Enhance understanding with effective comprehension techniques.</p>
+        <a href="#comprehension-details" class="learn-more">Learn More</a>
+      </div>
     </div>
-  </header>
-
-  <div class="hero">
-    <h1>Digital Literacy</h1>
-    <p>“Understanding AI and the digital world is the first step toward empowered online living.”</p>
-  </div>
-
-  <div class="about">
-    <h2>Philosophy of AI</h2>
-    <p>We explore AI, AGI, and the philosophical questions behind technology, helping you understand the difference between narrow AI and hypothetical AGI in simple terms.</p>
-  </div>
-
-  <div class="steps">
-    <div class="step">
-      <h3>Learn Responsibly</h3>
-      <p>Recognize credible sources and avoid misinformation in the digital space.</p>
-    </div>
-    <div class="step">
-      <h3>Explore AI Ethically</h3>
-      <p>Understand AI limitations and ethical implications of using machine intelligence.</p>
-    </div>
-    <div class="step">
-      <h3>Practice Safe Interaction</h3>
-      <p>Engage with AI tools safely, keeping personal data secure.</p>
-    </div>
-  </div>
-
-  <section class="grid">
-    <h2>Quick Guides</h2>
-    <p>Visit our sections to deepen your understanding of each topic.</p>
-    <a href="literacy.html" class="btn">Explore Literacy</a>
-    <a href="morality.html" class="btn">Explore Morality</a>
-    <a href="security.html" class="btn">Explore Security</a>
-    <a href="resources.html" class="btn">Explore Resources</a>
   </section>
 
-  <div class="auth">
-    <h3>Member Access</h3>
-    <input type="email" placeholder="Email Address"/>
-    <input type="password" placeholder="Password"/>
-    <div>
-      <button onclick="loginUser()">Login</button>
-      <button onclick="signupUser()">Sign Up</button>
-    </div>
-  </div>
+  <!-- Deep Dive Sections -->
+  <section id="reading-details" class="content-section">
+    <h2>Deep Dive: Reading Skills</h2>
+    <p>Learn techniques like skimming, scanning, and critical analysis to boost speed and memory retention.</p>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 Ckmillian</p>
-    <p>Designed by Mudde Carl Maximillian Kintu</p>
-  </footer>
-<script src="script.js"></script>
+  <section id="writing-details" class="content-section">
+    <h2>Deep Dive: Writing Skills</h2>
+    <p>Practice structuring sentences, grammar hacks, persuasive writing, and creative expression.</p>
+  </section>
+
+  <section id="comprehension-details" class="content-section">
+    <h2>Deep Dive: Comprehension</h2>
+    <p>Use summarizing, questioning, and note-taking methods to strengthen comprehension.</p>
+  </section>
 </body>
 </html>
