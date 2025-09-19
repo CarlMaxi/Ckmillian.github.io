@@ -97,62 +97,69 @@ header nav ul li a:hover {
 .hero .cta:hover {
   background-color: #e03a00;
 }
+
 .glitch {
   position: relative;
-  color: #fc4301;
+  color: #fff; /* main color */
+  font-family: 'Courier New', Courier, monospace; /* swap for any unique font */
   font-weight: bold;
-  font-family: 'Courier New', Courier, monospace; /* unique font */
-  animation: glitch 1s infinite;
+  font-size: 4rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .glitch::before,
 .glitch::after {
   content: 'Ckmillian';
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
   width: 100%;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
 }
 
 .glitch::before {
   left: 2px;
-  text-shadow: -2px 0 #0ff;
-  animation: glitchTop 1s infinite;
+  text-shadow: -2px 0 #0ff, 2px 2px #ff0;
+  clip: rect(2px, 9999px, 44px, 0);
+  animation: glitchTop 2s infinite linear alternate-reverse;
 }
 
 .glitch::after {
   left: -2px;
-  text-shadow: 2px 0 #f0f;
-  animation: glitchBottom 1s infinite;
+  text-shadow: -2px -2px #f0f, 2px 0 #ff00ff;
+  clip: rect(0px, 9999px, 40px, 0);
+  animation: glitchBottom 1.5s infinite linear alternate-reverse;
 }
 
-/* Main glitch movement */
-@keyframes glitch {
-  0%, 100% { transform: none; }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
+/* flicker the main text */
+.glitch {
+  animation: flicker 3s infinite;
 }
 
-/* Top slice */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 22%, 24%, 55% { opacity: 0.6; }
+}
+
+/* Top slice distortion */
 @keyframes glitchTop {
-  0%, 100% { clip: rect(0, 900px, 0, 0); }
-  20% { clip: rect(0, 900px, 15px, 0); }
-  40% { clip: rect(5px, 900px, 20px, 0); }
-  60% { clip: rect(10px, 900px, 25px, 0); }
-  80% { clip: rect(0, 900px, 15px, 0); }
+  0% { transform: translate(0); }
+  20% { transform: translate(-4px, -2px); }
+  40% { transform: translate(-2px, 2px); }
+  60% { transform: translate(3px, -1px); }
+  80% { transform: translate(-2px, 1px); }
+  100% { transform: translate(0); }
 }
 
-/* Bottom slice */
+/* Bottom slice distortion */
 @keyframes glitchBottom {
-  0%, 100% { clip: rect(0, 900px, 0, 0); }
-  20% { clip: rect(20px, 900px, 35px, 0); }
-  40% { clip: rect(25px, 900px, 40px, 0); }
-  60% { clip: rect(20px, 900px, 35px, 0); }
-  80% { clip: rect(25px, 900px, 40px, 0); }
+  0% { transform: translate(0); }
+  20% { transform: translate(3px, 1px); }
+  40% { transform: translate(-3px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(-1px, -1px); }
+  100% { transform: translate(0); }
 }
 
 
