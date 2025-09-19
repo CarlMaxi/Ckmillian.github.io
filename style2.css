@@ -220,6 +220,10 @@ header nav ul li a:hover {
   margin-bottom: 1rem;
 }
 
+.detail-section {
+  scroll-margin-top: 80px; /* adjust based on header height */
+}
+
 /* ===== FOOTER ===== */
 footer {
   text-align: center;
