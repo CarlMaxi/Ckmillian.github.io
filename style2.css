@@ -108,7 +108,7 @@ header nav ul li a:hover {
   animation: glitchLetter 1s infinite;
 }
 
-/* Add random delays for each letter */
+/* Random delays for natural effect */
 .glitch span:nth-child(1) { animation-delay: 0s; }
 .glitch span:nth-child(2) { animation-delay: 0.1s; }
 .glitch span:nth-child(3) { animation-delay: 0.2s; }
@@ -119,21 +119,20 @@ header nav ul li a:hover {
 .glitch span:nth-child(8) { animation-delay: 0.12s; }
 .glitch span:nth-child(9) { animation-delay: 0.22s; }
 
-/* Letter-by-letter glitch animation */
+/* Subtle glitch animation */
 @keyframes glitchLetter {
   0%   { transform: translate(0,0); color: #fff; }
-  10%  { transform: translate(-2px,-2px); color: #f00; }
-  20%  { transform: translate(2px,1px); color: #0ff; }
-  30%  { transform: translate(-1px,2px); color: #ff0; }
-  40%  { transform: translate(1px,-1px); color: #f0f; }
-  50%  { transform: translate(0,1px); color: #fff; }
-  60%  { transform: translate(2px,-2px); color: #f0f; }
-  70%  { transform: translate(-2px,2px); color: #0ff; }
-  80%  { transform: translate(1px,-1px); color: #ff0; }
-  90%  { transform: translate(-1px,0); color: #f00; }
+  10%  { transform: translate(-1px,-1px); color: #f0f; }  /* soft magenta */
+  20%  { transform: translate(1px,1px); color: #0ff; }    /* soft cyan */
+  30%  { transform: translate(-1px,1px); color: #fff; }
+  40%  { transform: translate(1px,-1px); color: #fff; }
+  50%  { transform: translate(0,0); color: #fff; }
+  60%  { transform: translate(1px,-1px); color: #0ff; }
+  70%  { transform: translate(-1px,1px); color: #f0f; }
+  80%  { transform: translate(0,0); color: #fff; }
+  90%  { transform: translate(0,0); color: #fff; }
   100% { transform: translate(0,0); color: #fff; }
 }
-
 
 
 /* ===== CONTENT SECTIONS ===== */
