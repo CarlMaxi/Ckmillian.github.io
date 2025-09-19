@@ -7,6 +7,31 @@
   <link rel="stylesheet" href="style2.css">
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    .detail-section {
+      background: #fff;
+      padding: 3rem 2rem;
+      margin: 2rem auto;
+      max-width: 1000px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .detail-section h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #222;
+      text-align: center;
+    }
+    .detail-section p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.7;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
   <!-- HEADER -->
@@ -15,10 +40,10 @@
     <nav>
       <ul>
         <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="literacy.html">Literacy</a></li>
-        <li><a href="morality.html">Morality</a></li>
-        <li><a href="security.html">Security</a></li>
-        <li><a href="resources.html">Resources</a></li>
+        <li><a href="#literacy">Literacy</a></li>
+        <li><a href="#morality">Morality</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#resources">Resources</a></li>
       </ul>
     </nav>
     <div class="hamburger" onclick="toggleMenu()">☰</div>
@@ -44,21 +69,37 @@
       <i class="fas fa-book fa-2x"></i>
       <h3>Reading Skills</h3>
       <p>Improve comprehension and speed with curated exercises and reading strategies.</p>
-      <a href="#" class="learn-more">Learn More</a>
+      <a href="#reading-details" class="learn-more">Learn More</a>
     </div>
     <div class="card">
       <i class="fas fa-pen-fancy fa-2x"></i>
       <h3>Writing Skills</h3>
       <p>Master clear, concise, and expressive writing for school and personal projects.</p>
-      <a href="#" class="learn-more">Learn More</a>
+      <a href="#writing-details" class="learn-more">Learn More</a>
     </div>
     <div class="card">
       <i class="fas fa-book-reader fa-2x"></i>
       <h3>Comprehension</h3>
       <p>Enhance memory and understanding with effective comprehension techniques.</p>
-      <a href="#" class="learn-more">Learn More</a>
+      <a href="#comprehension-details" class="learn-more">Learn More</a>
     </div>
   </div>
+</section>
+
+<!-- Literacy Details -->
+<section id="reading-details" class="detail-section">
+  <h3>Reading Skills</h3>
+  <p>Sharpen your reading through skimming, scanning, and deep-reading techniques. Explore curated book lists and practice speed-reading to improve both comprehension and retention.</p>
+</section>
+
+<section id="writing-details" class="detail-section">
+  <h3>Writing Skills</h3>
+  <p>Develop clear and expressive writing. Learn sentence structure, grammar mastery, and storytelling techniques that make your essays, blogs, and personal work stand out.</p>
+</section>
+
+<section id="comprehension-details" class="detail-section">
+  <h3>Comprehension</h3>
+  <p>Boost your understanding with active recall, note-taking frameworks, and summarization methods. Perfect for studying, exams, and everyday information retention.</p>
 </section>
 
 <!-- MORALITY SECTION -->
@@ -69,21 +110,37 @@
       <i class="fas fa-lightbulb fa-2x"></i>
       <h3>Ethical Thinking</h3>
       <p>Understand moral dilemmas and develop strong ethical decision-making skills.</p>
-      <a href="#" class="learn-more">Learn More</a>
+      <a href="#ethical-details" class="learn-more">Learn More</a>
     </div>
     <div class="card">
       <i class="fas fa-compass fa-2x"></i>
       <h3>Values & Principles</h3>
       <p>Build a personal code of conduct to guide actions and relationships.</p>
-      <a href="#" class="learn-more">Learn More</a>
+      <a href="#values-details" class="learn-more">Learn More</a>
     </div>
     <div class="card">
       <i class="fas fa-users fa-2x"></i>
       <h3>Social Responsibility</h3>
       <p>Learn how to positively impact your community and environment.</p>
-      <a href="#" class="learn-more">Learn More</a>
+      <a href="#social-details" class="learn-more">Learn More</a>
     </div>
   </div>
+</section>
+
+<!-- Morality Details -->
+<section id="ethical-details" class="detail-section">
+  <h3>Ethical Thinking</h3>
+  <p>Train your mind to evaluate tough moral dilemmas. Practice scenarios that sharpen your judgment while balancing fairness, empathy, and logic.</p>
+</section>
+
+<section id="values-details" class="detail-section">
+  <h3>Values & Principles</h3>
+  <p>Discover how honesty, respect, and resilience form the pillars of a strong moral compass. Build your personal guide to life decisions.</p>
+</section>
+
+<section id="social-details" class="detail-section">
+  <h3>Social Responsibility</h3>
+  <p>Engage in projects and discussions that strengthen your role in your community. Learn to balance personal goals with the greater good.</p>
 </section>
 
 <!-- SECURITY SECTION -->
@@ -94,21 +151,37 @@
       <i class="fas fa-lock fa-2x"></i>
       <h3>Digital Safety</h3>
       <p>Protect your devices, accounts, and personal information online.</p>
-      <a href="#" class="learn-more">Learn More</a>
+      <a href="#digital-details" class="learn-more">Learn More</a>
     </div>
     <div class="card">
       <i class="fas fa-shield-alt fa-2x"></i>
       <h3>Physical Safety</h3>
       <p>Stay aware of your surroundings and learn tips for personal safety at home and school.</p>
-      <a href="#" class="learn-more">Learn More</a>
+      <a href="#physical-details" class="learn-more">Learn More</a>
     </div>
     <div class="card">
       <i class="fas fa-user-shield fa-2x"></i>
       <h3>Cybersecurity Basics</h3>
       <p>Learn about VPNs, antivirus tools, and safe browsing habits.</p>
-      <a href="#" class="learn-more">Learn More</a>
+      <a href="#cyber-details" class="learn-more">Learn More</a>
     </div>
   </div>
+</section>
+
+<!-- Security Details -->
+<section id="digital-details" class="detail-section">
+  <h3>Digital Safety</h3>
+  <p>From strong passwords to two-factor authentication, explore practical steps to keep your online identity secure from hackers and scams.</p>
+</section>
+
+<section id="physical-details" class="detail-section">
+  <h3>Physical Safety</h3>
+  <p>Learn daily safety routines: awareness of exits, safe travel practices, and home security basics to reduce risks in the physical world.</p>
+</section>
+
+<section id="cyber-details" class="detail-section">
+  <h3>Cybersecurity Basics</h3>
+  <p>Understand how VPNs, firewalls, and antivirus software work. Get started with the essentials of staying safe online without overwhelming complexity.</p>
 </section>
 
 <!-- RESOURCES SECTION -->
@@ -119,21 +192,37 @@
       <i class="fas fa-book-open fa-2x"></i>
       <h3>Guides</h3>
       <p>Step-by-step guides to help you master literacy, morality, and security topics.</p>
-      <a href="#" class="learn-more">Learn More</a>
+      <a href="#guides-details" class="learn-more">Learn More</a>
     </div>
     <div class="card">
       <i class="fas fa-tools fa-2x"></i>
       <h3>Tools & References</h3>
       <p>Access helpful tools, cheat sheets, and references for practical learning.</p>
-      <a href="#" class="learn-more">Learn More</a>
+      <a href="#tools-details" class="learn-more">Learn More</a>
     </div>
     <div class="card">
       <i class="fas fa-users fa-2x"></i>
       <h3>Community</h3>
       <p>Connect with peers, share knowledge, and participate in discussions.</p>
-      <a href="#" class="learn-more">Learn More</a>
+      <a href="#community-details" class="learn-more">Learn More</a>
     </div>
   </div>
+</section>
+
+<!-- Resources Details -->
+<section id="guides-details" class="detail-section">
+  <h3>Guides</h3>
+  <p>Browse practical tutorials on literacy, morality, and security. Includes beginner-friendly steps and advanced practices to grow your skills.</p>
+</section>
+
+<section id="tools-details" class="detail-section">
+  <h3>Tools & References</h3>
+  <p>Find dictionaries, checklists, and cheat sheets to make learning smooth. Explore curated links to trusted platforms and resources.</p>
+</section>
+
+<section id="community-details" class="detail-section">
+  <h3>Community</h3>
+  <p>Join discussions, share stories, and connect with learners like you. Our community is here to support and inspire your growth.</p>
 </section>
 
   <!-- FOOTER -->
